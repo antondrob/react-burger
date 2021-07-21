@@ -2,7 +2,6 @@ import React from 'react';
 import AppHeader from "./components/app-header/AppHeader";
 import BurgerIngredients from "./components/burger-ingredients/BurgerIngredients";
 import './App.css';
-import BurgerIngredientsStyles from "./components/burger-ingredients/BurgerIngredientsStyles.module.css";
 import BurgerConstructor from "./components/burger-constructor/BurgerConstructor";
 
 function App() {
