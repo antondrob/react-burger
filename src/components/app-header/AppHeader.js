@@ -15,11 +15,11 @@ class AppHeader extends React.Component {
             <header className={headerStyles.header}>
                 <nav className={headerStyles.menuItems}>
                     <div className={headerStyles.menuItemSection}>
-                        <a href="#" className={headerStyles.menuItemActive}>
+                        <a href="/" className={headerStyles.menuItemActive}>
                             <BurgerIcon type="primary"/>
                             <span className="ml-3">Конструктор</span>
                         </a>
-                        <a href="#" className={headerStyles.menuItem}>
+                        <a href="/" className={headerStyles.menuItem}>
                             <ListIcon type="secondary"/>
                             <span className="ml-3">Лента заказов</span>
                         </a>
@@ -30,7 +30,7 @@ class AppHeader extends React.Component {
                         </a>
                     </div>
                     <div className={headerStyles.lkSection}>
-                        <a href="#" className={headerStyles.menuLkItem}>
+                        <a href="/" className={headerStyles.menuLkItem}>
                             <ProfileIcon type="secondary"/>
                             <span className="ml-3">Личный кабинет</span>
                         </a>

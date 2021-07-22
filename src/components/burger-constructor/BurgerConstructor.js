@@ -125,7 +125,7 @@ const productPropTypes = PropTypes.shape({
 });
 
 BurgerConstructor.propTypes = {
-    products: productPropTypes
+    products: PropTypes.arrayOf(productPropTypes)
 };
 
 export default BurgerConstructor;

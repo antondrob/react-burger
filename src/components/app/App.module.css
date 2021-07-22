@@ -2,14 +2,14 @@
     font-family: 'Iceland';
     font-style: normal;
     font-weight: 400;
-    src: url("./fonts/Iceland-Regular.ttf") format("truetype");
+    src: url("../../fonts/Iceland-Regular.ttf") format("truetype");
 }
 
 @font-face {
     font-family: 'JetBrains Mono';
     font-style: normal;
     font-weight: 400;
-    src: url("./fonts/JetBrainsMono-Regular.ttf") format("truetype");
+    src: url("../../fonts/JetBrainsMono-Regular.ttf") format("truetype");
 }
 
 .container {
@@ -25,8 +25,4 @@
 .content > section {
     flex: 1;
     max-width: 600px;
-}
-
-h1 {
-
 }
