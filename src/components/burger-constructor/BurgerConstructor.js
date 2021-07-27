@@ -14,99 +14,97 @@ import sp1 from "../../images/sp-1.png";
 import mineralRings from "../../images/mineral-rings.png";
 import PropTypes from "prop-types";
 
-class BurgerConstructor extends React.Component {
-    render() {
-        return (
-            <section className={BurgerConstructorStyles.rightSidebar}>
-                <div className={BurgerConstructorStyles.cart}>
+function BurgerConstructor() {
+    return (
+        <section className={BurgerConstructorStyles.rightSidebar}>
+            <div className={BurgerConstructorStyles.cart}>
+                <div>
+                    <ConstructorElement
+                        type="top"
+                        isLocked={true}
+                        text="Краторная булка N-200i (верх)"
+                        price={200}
+                        thumbnail={bun02}
+                    />
+                </div>
+                <div className={BurgerConstructorStyles.ingredients}>
                     <div>
+                        <DragIcon/>
                         <ConstructorElement
-                            type="top"
-                            isLocked={true}
-                            text="Краторная булка N-200i (верх)"
-                            price={200}
-                            thumbnail={bun02}
+                            text="Соус традиционный галактический"
+                            price={30}
+                            thumbnail={sauce03}
                         />
                     </div>
-                    <div className={BurgerConstructorStyles.ingredients}>
-                        <div>
-                            <DragIcon/>
-                            <ConstructorElement
-                                text="Соус традиционный галактический"
-                                price={30}
-                                thumbnail={sauce03}
-                            />
-                        </div>
-                        <div>
-                            <DragIcon/>
-                            <ConstructorElement
-                                text="Мясо бессмертных моллюсков Protostomia"
-                                price={300}
-                                thumbnail={meat02}
-                            />
-                        </div>
-                        <div>
-                            <DragIcon/>
-                            <ConstructorElement
-                                text="Плоды Фалленианского дерева"
-                                price={80}
-                                thumbnail={sp1}
-                            />
-                        </div>
-                        <div>
-                            <DragIcon/>
-                            <ConstructorElement
-                                text="Плоды Фалленианского дерева"
-                                price={80}
-                                thumbnail={sp1}
-                            />
-                        </div>
-                        <div>
-                            <DragIcon/>
-                            <ConstructorElement
-                                text="Плоды Фалленианского дерева"
-                                price={80}
-                                thumbnail={sp1}
-                            />
-                        </div>
-                        <div>
-                            <DragIcon/>
-                            <ConstructorElement
-                                text="Хрустящие минеральные кольца"
-                                price={80}
-                                thumbnail={mineralRings}
-                            />
-                        </div>
-                        <div>
-                            <DragIcon/>
-                            <ConstructorElement
-                                text="Хрустящие минеральные кольца"
-                                price={80}
-                                thumbnail={mineralRings}
-                            />
-                        </div>
+                    <div>
+                        <DragIcon/>
+                        <ConstructorElement
+                            text="Мясо бессмертных моллюсков Protostomia"
+                            price={300}
+                            thumbnail={meat02}
+                        />
                     </div>
                     <div>
+                        <DragIcon/>
                         <ConstructorElement
-                            type="bottom"
-                            isLocked={true}
-                            text="Краторная булка N-200i (низ)"
-                            price={200}
-                            thumbnail={bun02}
+                            text="Плоды Фалленианского дерева"
+                            price={80}
+                            thumbnail={sp1}
+                        />
+                    </div>
+                    <div>
+                        <DragIcon/>
+                        <ConstructorElement
+                            text="Плоды Фалленианского дерева"
+                            price={80}
+                            thumbnail={sp1}
+                        />
+                    </div>
+                    <div>
+                        <DragIcon/>
+                        <ConstructorElement
+                            text="Плоды Фалленианского дерева"
+                            price={80}
+                            thumbnail={sp1}
+                        />
+                    </div>
+                    <div>
+                        <DragIcon/>
+                        <ConstructorElement
+                            text="Хрустящие минеральные кольца"
+                            price={80}
+                            thumbnail={mineralRings}
+                        />
+                    </div>
+                    <div>
+                        <DragIcon/>
+                        <ConstructorElement
+                            text="Хрустящие минеральные кольца"
+                            price={80}
+                            thumbnail={mineralRings}
                         />
                     </div>
                 </div>
-                <div className={BurgerConstructorStyles.checkout}>
-                    <div className={BurgerConstructorStyles.total}>610 <CurrencyIcon type="primary"/></div>
-                    <div>
-                        <button className={BurgerConstructorStyles.button}>
-                            <span>Оформить заказ</span>
-                        </button>
-                    </div>
+                <div>
+                    <ConstructorElement
+                        type="bottom"
+                        isLocked={true}
+                        text="Краторная булка N-200i (низ)"
+                        price={200}
+                        thumbnail={bun02}
+                    />
                 </div>
-            </section>
-        )
-    }
+            </div>
+            <div className={BurgerConstructorStyles.checkout}>
+                <div className={BurgerConstructorStyles.total}>610 <CurrencyIcon type="primary"/></div>
+                <div>
+                    <button className={BurgerConstructorStyles.button}>
+                        <span>Оформить заказ</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+    )
 }
 
 const productPropTypes = PropTypes.shape({
