@@ -1,0 +1,34 @@
+.ingredientDetails {
+    max-width: 520px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.ingredientDetails h3 {
+    margin: 16px 0 32px 0;
+}
+
+
+.nutritionalValues {
+    width: 540px;
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    text-align: center;
+}
+
+.nutritionalValues p {
+    font-family: JetBrains Mono;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    color: #8585AD;
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+    margin: 8px 0px;
+}
