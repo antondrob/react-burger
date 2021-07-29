@@ -1,0 +1,57 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1240px;
+    margin: 40px auto 40px auto;
+}
+
+.menuItems {
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+
+.menuItemSection {
+    display: flex;
+    flex: 1;
+}
+
+.logoSection {
+    composes: menuItemSection;
+    justify-content: space-around;
+}
+
+.lkSection {
+    composes: menuItemSection;
+    justify-content: flex-end;
+}
+
+.menuItem {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    align-items: center;
+    padding: 16px 20px;
+    background: #1C1C21;
+    border: 1px dashed #4C4CFF;
+    box-sizing: border-box;
+    border-radius: 40px;
+    text-decoration: none;
+    color: #8585AD;
+}
+
+.menuItemActive {
+    composes: menuItem;
+    color: #fff;
+}
+
+.menuLkItem {
+    composes: menuItem;
+    max-width: 207px;
+}
+
+
+.menuItem:first-child {
+    margin-right: 8px;
+}
