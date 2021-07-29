@@ -15,50 +15,7 @@ import sp1 from "../../images/sp-1.png";
 import mineralRings from "../../images/mineral-rings.png";
 import PropTypes from "prop-types";
 
-// Modal
-import Modal from '../modal/Modal';
-import OrderDetails from '../order-details/OrderDetails';
-
-function BurgerConstructor() {
-    const [state, setState] = React.useState({
-        modal: {
-            isOpened: false
-        }
-    });
-
-    const closeIngredient = React.useCallback(
-        () => {
-            setState({
-                ...state,
-                modal: {
-                    isOpened: false
-                }
-            });
-        },
-        [state]
-    );
-
-    React.useEffect(() => {
-        const handleEsc = (event) => {
-            if (event.keyCode === 27 && state.modal.isOpened) {
-                closeIngredient();
-            }
-        };
-        document.addEventListener('keydown', handleEsc);
-        return () => {
-            document.removeEventListener('keydown', handleEsc);
-        }
-    }, [state.modal.isOpened, closeIngredient]);
-
-    const openIngredient = (el) => {
-        setState({
-            ...state,
-            modal: {
-                isOpened: true
-            }
-        });
-    }
-
+function BurgerConstructor({products, openModal}) {
     return (
         <section className={BurgerConstructorStyles.rightSidebar}>
             <div className={BurgerConstructorStyles.cart}>
@@ -142,14 +99,9 @@ function BurgerConstructor() {
             <div className={BurgerConstructorStyles.checkout}>
                 <div className={BurgerConstructorStyles.total}>610 <CurrencyIcon type="primary"/></div>
                 <div>
-                    <Button onClick={openIngredient} type="primary" size="large">Оформить заказ</Button>
+                    <Button onClick={() => openModal()} type="primary" size="large">Оформить заказ</Button>
                 </div>
             </div>
-            {state.modal.isOpened && (
-                <Modal onClose={closeIngredient}>
-                    <OrderDetails orderId="034536"/>
-                </Modal>
-            )}
         </section>
     )
 }

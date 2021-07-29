@@ -2,7 +2,6 @@ import React from "react";
 import IngredientDetailsStyles from "./IngredientDetailsStyles.module.css";
 import {Typography} from '@ya.praktikum/react-developer-burger-ui-components';
 import PropTypes from "prop-types";
-import ModalOverlay from "../modal-overlay/ModalOverlay";
 
 function IngredientDetails({details}) {
     const nutritionalValue = {

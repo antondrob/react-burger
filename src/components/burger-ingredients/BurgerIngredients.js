@@ -8,10 +8,8 @@ import {
     Box
 } from '@ya.praktikum/react-developer-burger-ui-components';
 import BurgerIngredientsStyles from './BurgerIngredientsStyles.module.css';
-import Modal from '../modal/Modal';
-import IngredientDetails from '../ingredient-details/IngredientDetails';
 
-function BurgerIngredients(props) {
+function BurgerIngredients({products, openModal}) {
     const [state, setState] = React.useState({
         tabs: [
             {
@@ -34,47 +32,8 @@ function BurgerIngredients(props) {
             "60666c42cc7b410027a1a9b1": 1,
             "60666c42cc7b410027a1a9b8": 1,
             "60666c42cc7b410027a1a9b6": 2
-        },
-        modal: {
-            isOpened: false,
-            data: null
         }
     });
-
-    const closeIngredient = React.useCallback(
-        () => {
-            setState({
-                ...state,
-                modal: {
-                    isOpened: false,
-                    data: null
-                }
-            })
-        },
-        [state]
-    );
-
-    React.useEffect(() => {
-        const handleEsc = (event) => {
-            if (event.keyCode === 27 && state.modal.isOpened) {
-                closeIngredient();
-            }
-        };
-        document.addEventListener('keydown', handleEsc);
-        return () => {
-            document.removeEventListener('keydown', handleEsc);
-        }
-    }, [state.modal.isOpened, closeIngredient]);
-
-    const openIngredient = (el) => {
-        setState({
-            ...state,
-            modal: {
-                isOpened: true,
-                data: el
-            }
-        });
-    }
 
     return (
         <section className={BurgerIngredientsStyles.leftSidebar}>
@@ -92,9 +51,9 @@ function BurgerIngredients(props) {
                     <div>
                         <h2>Булки</h2>
                         <ul className={BurgerIngredientsStyles.list}>
-                            {props.products.filter(el => el.type === 'bun').map((el, index) => {
+                            {products.filter(el => el.type === 'bun').map((el, index) => {
                                 return (
-                                    <li key={el._id} onClick={(e) => openIngredient(el)}>
+                                    <li key={el._id} onClick={(e) => openModal(el)}>
                                         {el._id in state.addedProducts &&
                                         <Counter count={state.addedProducts[el._id]} size="default"/>}
                                         <div className={BurgerIngredientsStyles.listItem}>
@@ -113,9 +72,9 @@ function BurgerIngredients(props) {
                     <div>
                         <h2>Соусы</h2>
                         <ul className={BurgerIngredientsStyles.list}>
-                            {props.products.filter(el => el.type === 'sauce').map((el, index) => {
+                            {products.filter(el => el.type === 'sauce').map((el, index) => {
                                 return (
-                                    <li key={el._id} onClick={(e) => openIngredient(el)}>
+                                    <li key={el._id} onClick={(e) => openModal(el)}>
                                         {el._id in state.addedProducts &&
                                         <Counter count={state.addedProducts[el._id]} size="default"/>}
                                         <div className={BurgerIngredientsStyles.listItem}>
@@ -134,9 +93,9 @@ function BurgerIngredients(props) {
                     <div>
                         <h2>Начинка</h2>
                         <ul className={BurgerIngredientsStyles.list}>
-                            {props.products.filter(el => el.type === 'main').map((el, index) => {
+                            {products.filter(el => el.type === 'main').map((el, index) => {
                                 return (
-                                    <li key={el._id} onClick={(e) => openIngredient(el)}>
+                                    <li key={el._id} onClick={(e) => openModal(el)}>
                                         {el._id in state.addedProducts &&
                                         <Counter count={state.addedProducts[el._id]} size="default"/>}
                                         <div className={BurgerIngredientsStyles.listItem}>
@@ -154,11 +113,6 @@ function BurgerIngredients(props) {
                     </div>
                 </div>
             </div>
-            {state.modal.isOpened && (
-                <Modal header="Детали ингредиента" onClose={closeIngredient}>
-                    <IngredientDetails details={state.modal.data}/>
-                </Modal>
-            )}
         </section>
     )
 }
