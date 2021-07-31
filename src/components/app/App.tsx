@@ -19,14 +19,17 @@ function App() {
     const [ingredientOpen, setIngredientOpen] = React.useState(false);
     const [modalData, setModalData] = React.useState(null);
 
-    const openModal = (el = null) => {
-        if (el !== null) {
-            setIngredientOpen(true);
-            setModalData(el);
-        } else {
-            setOrderOpen(true);
-        }
-    }
+    const openModal = React.useCallback(
+        (el = null) => {
+            if (el !== null) {
+                setIngredientOpen(true);
+                setModalData(el);
+            } else {
+                setOrderOpen(true);
+            }
+        },
+        []
+    );
 
     const closeModal = React.useCallback(
         () => {

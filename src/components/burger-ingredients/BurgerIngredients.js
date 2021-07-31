@@ -136,4 +136,4 @@ BurgerIngredients.propTypes = {
     products: PropTypes.arrayOf(productPropTypes)
 };
 
-export default BurgerIngredients;
+export default React.memo(BurgerIngredients);
