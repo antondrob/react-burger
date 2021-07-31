@@ -13,68 +13,55 @@ function App() {
     const [state, setState] = React.useState({
         loading: false,
         error: false,
-        products: [],
-        modal: {
-            isOrderOpen: false,
-            isIngredientOpen: false,
-            data: null
-        }
+        products: []
     });
+    const [orderOpen, setOrderOpen] = React.useState(false);
+    const [ingredientOpen, setIngredientOpen] = React.useState(false);
+    const [modalData, setModalData] = React.useState(null);
 
     const openModal = (el = null) => {
         if (el !== null) {
-            setState({
-                ...state,
-                modal: {
-                    ...state.modal,
-                    isIngredientOpen: true,
-                    data: el
-                }
-            });
+            setIngredientOpen(true);
+            setModalData(el);
         } else {
-            setState({
-                ...state,
-                modal: {
-                    ...state.modal,
-                    isOrderOpen: true
-                }
-            });
+            setOrderOpen(true);
         }
     }
 
     const closeModal = React.useCallback(
         () => {
-            setState({
-                ...state,
-                modal: {
-                    isOrderOpen: false,
-                    isIngredientOpen: false,
-                    data: null
-                }
-            });
+            setIngredientOpen(false);
+            setOrderOpen(false);
+            setModalData(null);
         },
-        [state]
+        []
     );
 
     React.useEffect(() => {
-        setState({...state, loading: true});
-        fetch(apiUrl)
-            .then(response => response.json())
-            .then(json => {
-                if (json?.success) {
-                    setState({...state, loading: false, error: false, products: json.data});
-                } else {
-                    setState({...state, loading: false, error: true});
+        const getProductData = async () => {
+            setState({...state, loading: true});
+            try {
+                const response = await fetch(apiUrl);
+                if (!response.ok) {
+                    throw new Error('Ответ сети был не ok.');
                 }
-            })
-            .catch((error) => {
+                const json = await response.json();
+                if (json?.success) {
+                    setState({loading: false, error: false, products: json.data});
+                } else {
+                    throw new Error('Не удалось получить товары.');
+                }
+            } catch (e) {
                 setState({...state, loading: false, error: true});
-            });
+            }
+        }
+        getProductData();
+
     }, []);
 
     React.useEffect(() => {
         const handleEsc = (event) => {
-            if (event.keyCode === 27 && (state.modal.isIngredientOpen || state.modal.isOrderOpen)) {
+            if (event.keyCode === 27 && (ingredientOpen || orderOpen)) {
                 closeModal();
             }
         };
@@ -82,7 +69,7 @@ function App() {
         return () => {
             document.removeEventListener('keydown', handleEsc);
         }
-    }, [state, closeModal]);
+    }, [orderOpen, ingredientOpen, closeModal]);
 
     return (
         <>
@@ -94,12 +81,12 @@ function App() {
                     <BurgerConstructor products={state.products} openModal={openModal}/>
                 </main>
             </div>
-            {state.modal.isIngredientOpen && (
+            {ingredientOpen && (
                 <Modal onClose={closeModal}>
-                    <IngredientDetails details={state.modal.data}/>
+                    <IngredientDetails details={modalData}/>
                 </Modal>
             )}
-            {state.modal.isOrderOpen && (
+            {orderOpen && (
                 <Modal onClose={closeModal}>
                     <OrderDetails orderId="034536"/>
                 </Modal>
