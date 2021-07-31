@@ -29,21 +29,6 @@
     outline: 1px solid slategrey;
 }
 
-.button {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 20px 40px;
-    background: linear-gradient(63.18deg, #801AB3 0%, #4C4CFF 100%);
-    border-radius: 64px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-    margin: 0px 0px;
-    border: none;
-}
-
 .checkout {
     display: flex;
     align-items: center;
