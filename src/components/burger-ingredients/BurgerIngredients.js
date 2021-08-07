@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import PropTypes from 'prop-types';
 import {
     Counter,
@@ -8,6 +8,7 @@ import {
     Box
 } from '@ya.praktikum/react-developer-burger-ui-components';
 import BurgerIngredientsStyles from './BurgerIngredientsStyles.module.css';
+import {constructorContext} from '../../contexts/constructorContext';
 
 function BurgerIngredients({products, openModal}) {
     const [state, setState] = React.useState({
@@ -34,6 +35,7 @@ function BurgerIngredients({products, openModal}) {
             "60666c42cc7b410027a1a9b6": 2
         }
     });
+    const {currentConstructor, dispatchConstructor} = useContext(constructorContext);
 
     return (
         <section className={BurgerIngredientsStyles.leftSidebar}>
@@ -53,7 +55,10 @@ function BurgerIngredients({products, openModal}) {
                         <ul className={BurgerIngredientsStyles.list}>
                             {products.filter(el => el.type === 'bun').map((el, index) => {
                                 return (
-                                    <li key={el._id} onClick={(e) => openModal(el)}>
+                                    <li key={el._id} onClick={(e) => {
+                                        openModal(el);
+                                        dispatchConstructor({type: 'add', payload: el});
+                                    }}>
                                         {el._id in state.addedProducts &&
                                         <Counter count={state.addedProducts[el._id]} size="default"/>}
                                         <div className={BurgerIngredientsStyles.listItem}>
@@ -74,7 +79,10 @@ function BurgerIngredients({products, openModal}) {
                         <ul className={BurgerIngredientsStyles.list}>
                             {products.filter(el => el.type === 'sauce').map((el, index) => {
                                 return (
-                                    <li key={el._id} onClick={(e) => openModal(el)}>
+                                    <li key={el._id} onClick={(e) => {
+                                        openModal(el);
+                                        dispatchConstructor({type: 'add', payload: el});
+                                    }}>
                                         {el._id in state.addedProducts &&
                                         <Counter count={state.addedProducts[el._id]} size="default"/>}
                                         <div className={BurgerIngredientsStyles.listItem}>
@@ -95,7 +103,10 @@ function BurgerIngredients({products, openModal}) {
                         <ul className={BurgerIngredientsStyles.list}>
                             {products.filter(el => el.type === 'main').map((el, index) => {
                                 return (
-                                    <li key={el._id} onClick={(e) => openModal(el)}>
+                                    <li key={el._id} onClick={(e) => {
+                                        openModal(el);
+                                        dispatchConstructor({type: 'add', payload: el});
+                                    }}>
                                         {el._id in state.addedProducts &&
                                         <Counter count={state.addedProducts[el._id]} size="default"/>}
                                         <div className={BurgerIngredientsStyles.listItem}>
