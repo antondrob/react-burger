@@ -6,11 +6,10 @@ import BurgerConstructor from "../burger-constructor/BurgerConstructor";
 import Modal from "../modal/Modal";
 import OrderDetails from "../order-details/OrderDetails";
 import IngredientDetails from "../ingredient-details/IngredientDetails";
-import {constructorContext} from '../../contexts/constructorContext';
-import {constructorReducer} from '../../reducers/constructorReducer';
+import {BurgerContext} from '../../services/contexts/BurgerContext';
+import {constructorReducer} from '../../services/reducers/constructorReducer';
+import {API_URL, PLACE_ORDER_URL} from '../../services/apiVariables';
 
-const apiUrl = 'https://norma.nomoreparties.space/api/ingredients';
-const placeOrderUrl = 'https://norma.nomoreparties.space/api/orders';
 
 const initialConstructorState = {
     items: [
@@ -121,7 +120,6 @@ function App() {
     const [orderId, setOrderId] = useState(null);
     const [ingredientOpen, setIngredientOpen] = useState(false);
     const [modalData, setModalData] = useState(null);
-    const [currentConstructor, dispatchConstructor] = useReducer(constructorReducer, initialConstructorState);
 
     const openModal = useCallback(
         async (el = null) => {
@@ -130,13 +128,13 @@ function App() {
                 setModalData(el);
             } else {
                 try {
-                    const response = await fetch(placeOrderUrl, {
+                    const response = await fetch(PLACE_ORDER_URL, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
                         },
                         body: JSON.stringify({
-                            "ingredients": currentConstructor.items.map(item => item._id)
+                            "ingredients": state.products.map(item => item._id)
                         })
                     });
                     if (!response.ok) {
@@ -154,7 +152,7 @@ function App() {
                 }
             }
         },
-        [currentConstructor.items]
+        [state.products]
     );
 
     const closeModal = useCallback(
@@ -170,7 +168,7 @@ function App() {
         const getProductData = async () => {
             setState({...state, loading: true});
             try {
-                const response = await fetch(apiUrl);
+                const response = await fetch(API_URL);
                 if (!response.ok) {
                     throw new Error('Ответ сети был не ok.');
                 }
@@ -187,40 +185,28 @@ function App() {
         getProductData();
     }, []);
 
-    useEffect(() => {
-        const handleEsc = (event) => {
-            if (event.keyCode === 27 && (ingredientOpen || orderOpen)) {
-                closeModal();
-            }
-        };
-        document.addEventListener('keydown', handleEsc);
-        return () => {
-            document.removeEventListener('keydown', handleEsc);
-        }
-    }, [orderOpen, ingredientOpen, closeModal]);
-
     return (
         <>
-            <AppHeader/>
-            <div className={AppStyles.container}>
-                <h1>Соберите бургер</h1>
-                <main className={AppStyles.content}>
-                    <constructorContext.Provider value={{currentConstructor, dispatchConstructor}}>
-                        <BurgerIngredients products={state.products} openModal={openModal}/>
-                        <BurgerConstructor products={state.products} openModal={openModal}/>
-                    </constructorContext.Provider>
-                </main>
-            </div>
-            {ingredientOpen && (
-                <Modal onClose={closeModal}>
-                    <IngredientDetails details={modalData}/>
-                </Modal>
-            )}
-            {orderOpen && (
-                <Modal onClose={closeModal}>
-                    <OrderDetails orderId={orderId} />
-                </Modal>
-            )}
+            <BurgerContext.Provider value={state.products}>
+                <AppHeader/>
+                <div className={AppStyles.container}>
+                    <h1>Соберите бургер</h1>
+                    <main className={AppStyles.content}>
+                        <BurgerIngredients openModal={openModal}/>
+                        <BurgerConstructor openModal={openModal}/>
+                    </main>
+                </div>
+                {ingredientOpen && (
+                    <Modal onClose={closeModal}>
+                        <IngredientDetails details={modalData}/>
+                    </Modal>
+                )}
+                {orderOpen && (
+                    <Modal onClose={closeModal}>
+                        <OrderDetails orderId={orderId}/>
+                    </Modal>
+                )}
+            </BurgerContext.Provider>
         </>
     );
 }

@@ -9,14 +9,17 @@ import {
 } from '@ya.praktikum/react-developer-burger-ui-components';
 import BurgerConstructorStyles from './BurgerConstructorStyles.module.css';
 import PropTypes from "prop-types";
-import {constructorContext} from '../../contexts/constructorContext';
+import {BurgerContext} from '../../services/contexts/BurgerContext';
 
-// import {constructorReducer} from '../../contexts/constructorReducer';
+function BurgerConstructor({openModal}) {
+    const products = useContext(BurgerContext);
+    const bunItems = products.filter((el, index) => el.type === 'bun' && index === 0);
+    const mainItems = products.filter(el => el.type === 'main');
+    const sauceItems = products.filter(el => el.type === 'sauce');
+    let FilteredProducts = [...bunItems, ...mainItems, ...sauceItems];
 
-function BurgerConstructor({products, openModal}) {
-    const {currentConstructor, dispatchConstructor} = useContext(constructorContext);
-    const chosenBun = currentConstructor.items.find(({type}) => type === 'bun');
-    const orderTotal = currentConstructor.items.reduce(function (acc, obj) {
+    const chosenBun = FilteredProducts.find(({type}) => type === 'bun');
+    const orderTotal = FilteredProducts.reduce(function (acc, obj) {
         let price = obj.price;
         if (obj.type === 'bun') {
             price += obj.price;
@@ -31,14 +34,14 @@ function BurgerConstructor({products, openModal}) {
                         <ConstructorElement
                             type="top"
                             isLocked={true}
-                            text={chosenBun.name}
+                            text={`${chosenBun.name} (верх)`}
                             price={chosenBun.price / 100}
                             thumbnail={chosenBun.image_mobile}
                         />
                     )}
                 </div>
                 <div className={BurgerConstructorStyles.ingredients}>
-                    {currentConstructor.items.map((el, index) => {
+                    {FilteredProducts.map((el, index) => {
                         if (el.type !== 'bun') {
                             return (
                                 <div className={BurgerConstructorStyles.chosenItem} key={el._id + index}>
@@ -48,14 +51,6 @@ function BurgerConstructor({products, openModal}) {
                                         text={el.name}
                                         price={el.price / 100}
                                         thumbnail={el.image_mobile}
-                                        handleClose={() => {
-                                            dispatchConstructor({
-                                                type: 'remove', payload: {
-                                                    item: el,
-                                                    index: index
-                                                }
-                                            })
-                                        }}
                                     />
                                 </div>
                             )
@@ -69,7 +64,7 @@ function BurgerConstructor({products, openModal}) {
                         <ConstructorElement
                             type="bottom"
                             isLocked={true}
-                            text={chosenBun.name}
+                            text={`${chosenBun.name} (низ)`}
                             price={chosenBun.price / 100}
                             thumbnail={chosenBun.image_mobile}
                         />
@@ -86,23 +81,8 @@ function BurgerConstructor({products, openModal}) {
     )
 }
 
-const productPropTypes = PropTypes.shape({
-    _id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
-    proteins: PropTypes.number.isRequired,
-    fat: PropTypes.number.isRequired,
-    carbohydrates: PropTypes.number.isRequired,
-    calories: PropTypes.number.isRequired,
-    price: PropTypes.number.isRequired,
-    image: PropTypes.string.isRequired,
-    image_mobile: PropTypes.string.isRequired,
-    image_large: PropTypes.string.isRequired,
-    __v: PropTypes.number.isRequired
-});
-
 BurgerConstructor.propTypes = {
-    products: PropTypes.arrayOf(productPropTypes)
+    openModal: PropTypes.func
 };
 
 export default BurgerConstructor;

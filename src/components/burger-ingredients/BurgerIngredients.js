@@ -8,9 +8,9 @@ import {
     Box
 } from '@ya.praktikum/react-developer-burger-ui-components';
 import BurgerIngredientsStyles from './BurgerIngredientsStyles.module.css';
-import {constructorContext} from '../../contexts/constructorContext';
+import {BurgerContext} from '../../services/contexts/BurgerContext';
 
-function BurgerIngredients({products, openModal}) {
+function BurgerIngredients({openModal}) {
     const [state, setState] = React.useState({
         tabs: [
             {
@@ -35,7 +35,7 @@ function BurgerIngredients({products, openModal}) {
             "60666c42cc7b410027a1a9b6": 2
         }
     });
-    const {currentConstructor, dispatchConstructor} = useContext(constructorContext);
+    const products = useContext(BurgerContext);
 
     return (
         <section className={BurgerIngredientsStyles.leftSidebar}>
@@ -57,7 +57,6 @@ function BurgerIngredients({products, openModal}) {
                                 return (
                                     <li key={el._id} onClick={(e) => {
                                         openModal(el);
-                                        dispatchConstructor({type: 'add', payload: el});
                                     }}>
                                         {el._id in state.addedProducts &&
                                         <Counter count={state.addedProducts[el._id]} size="default"/>}
@@ -81,7 +80,6 @@ function BurgerIngredients({products, openModal}) {
                                 return (
                                     <li key={el._id} onClick={(e) => {
                                         openModal(el);
-                                        dispatchConstructor({type: 'add', payload: el});
                                     }}>
                                         {el._id in state.addedProducts &&
                                         <Counter count={state.addedProducts[el._id]} size="default"/>}
@@ -105,7 +103,6 @@ function BurgerIngredients({products, openModal}) {
                                 return (
                                     <li key={el._id} onClick={(e) => {
                                         openModal(el);
-                                        dispatchConstructor({type: 'add', payload: el});
                                     }}>
                                         {el._id in state.addedProducts &&
                                         <Counter count={state.addedProducts[el._id]} size="default"/>}
@@ -128,23 +125,8 @@ function BurgerIngredients({products, openModal}) {
     )
 }
 
-const productPropTypes = PropTypes.shape({
-    _id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
-    proteins: PropTypes.number.isRequired,
-    fat: PropTypes.number.isRequired,
-    carbohydrates: PropTypes.number.isRequired,
-    calories: PropTypes.number.isRequired,
-    price: PropTypes.number.isRequired,
-    image: PropTypes.string.isRequired,
-    image_mobile: PropTypes.string.isRequired,
-    image_large: PropTypes.string.isRequired,
-    __v: PropTypes.number.isRequired
-});
-
 BurgerIngredients.propTypes = {
-    products: PropTypes.arrayOf(productPropTypes)
+    openModal: PropTypes.func
 };
 
 export default React.memo(BurgerIngredients);
