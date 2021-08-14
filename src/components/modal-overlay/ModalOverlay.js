@@ -1,7 +1,7 @@
 import React from 'react';
 import {useDispatch} from "react-redux";
 import ModalOverlayStyles from './ModalOverlayStyles.module.css';
-import {closeModal} from "../../services/actions";
+import {closeModal} from "../../services/actions/modal";
 
 function ModalOverlay() {
     const dispatch = useDispatch();

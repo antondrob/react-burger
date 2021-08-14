@@ -4,18 +4,7 @@ import './index.css';
 import App from './components/app/App';
 import reportWebVitals from './reportWebVitals';
 import {Provider} from 'react-redux';
-import {configureStore} from '@reduxjs/toolkit';
-import {rootReducer} from './services/reducers';
-import thunk from 'redux-thunk';
-import {preloadedState} from './services/preloadedState';
-
-const store = configureStore({
-    reducer: rootReducer,
-    middleware: [thunk],
-    devTools: process.env.NODE_ENV !== 'production',
-    preloadedState,
-    enhancers: [],
-})
+import {store} from './services/store';
 
 ReactDOM.render(
     <React.StrictMode>

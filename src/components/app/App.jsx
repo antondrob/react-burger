@@ -7,7 +7,7 @@ import BurgerConstructor from "../burger-constructor/BurgerConstructor";
 import Modal from "../modal/Modal";
 import OrderDetails from "../order-details/OrderDetails";
 import IngredientDetails from "../ingredient-details/IngredientDetails";
-import {getIngredients} from '../../services/actions';
+import {getIngredients} from '../../services/actions/ingredients';
 import {DndProvider} from "react-dnd";
 import {HTML5Backend} from "react-dnd-html5-backend";
 
@@ -33,12 +33,12 @@ function App() {
                     </DndProvider>
                 </main>
             </div>
-            {ingredient && Object.keys(ingredient).length > 0 && ingredient.constructor === Object && (
+            {ingredient && (
                 <Modal>
                     <IngredientDetails details={ingredient}/>
                 </Modal>
             )}
-            {order.data && Object.keys(order.data).length > 0 && order.data.constructor === Object && (
+            {order.data && (
                 <Modal>
                     <OrderDetails/>
                 </Modal>

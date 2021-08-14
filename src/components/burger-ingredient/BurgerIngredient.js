@@ -1,12 +1,10 @@
-import {SHOW_INGREDIENT} from "../../services/actions";
+import {SHOW_INGREDIENT} from "../../services/actions/ingredient";
 import {Counter, CurrencyIcon} from "@ya.praktikum/react-developer-burger-ui-components";
 import BurgerIngredientStyles from "../burger-ingredient/BurgerIngredientStyles.module.css";
 import React from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {useDrag} from "react-dnd";
 import PropTypes from "prop-types";
-import IngredientDetails from "../ingredient-details/IngredientDetails";
-
 
 const BurgerIngredient = ({item}) => {
     const dispatch = useDispatch();
@@ -31,7 +29,7 @@ const BurgerIngredient = ({item}) => {
                 <div className={BurgerIngredientStyles.listItem}>
                     <img src={item.image} alt={item.name}/>
                     <span
-                        className={BurgerIngredientStyles.listItemPrice}>{item.price / 100}
+                        className={BurgerIngredientStyles.listItemPrice}>{item.price}
                         <CurrencyIcon
                             type="primary"/></span>
                     <h3 className={BurgerIngredientStyles.listItemTitle}>{item.name}</h3>

@@ -5,7 +5,8 @@ import ModalOverlay from '../modal-overlay/ModalOverlay';
 import ModalStyles from './ModalStyles.module.css';
 import {CloseIcon} from '@ya.praktikum/react-developer-burger-ui-components';
 import PropTypes from "prop-types";
-import {closeModal} from '../../services/actions';
+import {closeModal} from '../../services/actions/modal';
+import {ESC_KEYCODE} from '../../services/apiVariables';
 
 const modalRoot = document.getElementById("react-modals");
 
@@ -14,7 +15,7 @@ function Modal({children, header}) {
 
     useEffect(() => {
         const handleEsc = (event) => {
-            if (event.keyCode === 27) {
+            if (event.keyCode === ESC_KEYCODE) {
                 dispatch(closeModal())
             }
         };

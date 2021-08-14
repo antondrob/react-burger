@@ -24,7 +24,8 @@
     align-items: flex-end;
     flex-direction: column;
     overflow-y: scroll;
-    width: 90%;
+    margin-right: -10px;
+    width: 100%;
 }
 
 .ingredients::-webkit-scrollbar {

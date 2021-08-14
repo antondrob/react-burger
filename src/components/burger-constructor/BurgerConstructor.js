@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react';
+import React, {useCallback, useMemo} from 'react';
 import {
     CurrencyIcon,
     ConstructorElement,
@@ -8,21 +8,28 @@ import {
 } from '@ya.praktikum/react-developer-burger-ui-components';
 import BurgerConstructorStyles from './BurgerConstructorStyles.module.css';
 import {useSelector, useDispatch} from "react-redux";
-import {ADD_TO_BURGER, createOrder, REORDER_BURGER} from "../../services/actions";
+import {ADD_TO_BURGER, REORDER_BURGER} from "../../services/actions/burgerConstructor";
+import {createOrder} from "../../services/actions/order";
+
 import {useDrop} from "react-dnd";
 import update from 'immutability-helper';
 import SortableIngredient from '../sortable-ingredient/SortableIngredient';
+import { v4 as uuidv4 } from 'uuid';
 
 function BurgerConstructor() {
     const {notBun, bun} = useSelector(store => store.burger);
     const ingredients = useSelector(store => store.ingredients.items);
-    const orderTotal = notBun.reduce(function (acc, obj) {
-        let price = obj.price;
-        if (obj.type === 'bun') {
-            price += obj.price;
-        }
-        return acc + price;
-    }, 0) + (bun.price ?? 0 * 2);
+
+    const orderTotal = useMemo(() => {
+        return notBun.reduce(function (acc, obj) {
+            let price = obj.price;
+            if (obj.type === 'bun') {
+                price += obj.price;
+            }
+            return acc + price;
+        }, 0) + (bun ? bun.price * 2 : 0);
+    }, [notBun, bun]);
+
     const dispatch = useDispatch();
     const moveCard = useCallback((dragIndex, hoverIndex) => {
         const dragCard = notBun[dragIndex];
@@ -53,7 +60,8 @@ function BurgerConstructor() {
         drop(item) {
             dispatch({
                 type: ADD_TO_BURGER,
-                item: ingredients.find(el => el._id === item.itemId)
+                item: ingredients.find(el => el._id === item.itemId),
+                uniqueId: item.itemId + uuidv4()
             });
         },
         collect: monitor => ({
@@ -65,15 +73,15 @@ function BurgerConstructor() {
     return (
         <section className={BurgerConstructorStyles.rightSidebar}>
             <div ref={dropTarget} className={BurgerConstructorStyles.cart} style={{borderColor}}>
-                {notBun.length > 0 || (bun && Object.keys(bun).length !== 0) ? (
+                {notBun.length > 0 || bun ? (
                     <>
                         <div>
-                            {bun && Object.keys(bun).length !== 0 && (
+                            {bun && (
                                 <ConstructorElement
                                     type="top"
                                     isLocked={true}
                                     text={`${bun.name} (верх)`}
-                                    price={bun.price / 100}
+                                    price={bun.price}
                                     thumbnail={bun.image_mobile}
                                 />
                             )}
@@ -82,12 +90,12 @@ function BurgerConstructor() {
                             {notBun.filter(el => el.type !== 'bun').map((card, i) => renderCard(card, i))}
                         </div>
                         <div>
-                            {bun && Object.keys(bun).length !== 0 && (
+                            {bun && (
                                 <ConstructorElement
                                     type="bottom"
                                     isLocked={true}
                                     text={`${bun.name} (низ)`}
-                                    price={bun.price / 100}
+                                    price={bun.price}
                                     thumbnail={bun.image_mobile}
                                 />
                             )}
@@ -100,7 +108,7 @@ function BurgerConstructor() {
                 )}
             </div>
             <div className={BurgerConstructorStyles.checkout}>
-                <div className={BurgerConstructorStyles.total}>{orderTotal / 100} <CurrencyIcon type="primary"/></div>
+                <div className={BurgerConstructorStyles.total}>{orderTotal} <CurrencyIcon type="primary"/></div>
                 <div>
                     <Button onClick={() => dispatch(createOrder(bun, notBun))} type="primary" size="large">Оформить
                         заказ</Button>

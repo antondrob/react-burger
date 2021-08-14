@@ -2,33 +2,16 @@ export const preloadedState = {
     ingredients: {
         items: [],
         ingredientsRequest: false,
-        ingredientsFailed: false,
+        ingredientsFailed: false
     },
     burger: {
-        bun: {},
+        bun: null,
         notBun: []
     },
-    ingredient: {},
+    ingredient: null,
     order: {
-        data: {},
+        data: null,
         orderRequest: false,
-        orderFailed: false,
-    },
-    tabs: [
-        {
-            id: 'bun',
-            name: 'Булки',
-            active: true
-        },
-        {
-            id: 'sauce',
-            name: 'Соусы',
-            active: false
-        },
-        {
-            id: 'main',
-            name: 'Начинка',
-            active: false
-        }
-    ]
+        orderFailed: false
+    }
 };

@@ -32,6 +32,7 @@
 
 .burgerBuilder {
     overflow-y: scroll;
+    scroll-behavior: smooth;
 }
 
 .burgerBuilder h2 {
