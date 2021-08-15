@@ -1,0 +1,16 @@
+.chosenItem {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    cursor: grab;
+    padding: 5px 0;
+    cursor: move;
+}
+
+.chosenItem > svg {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 25px;
+    cursor: grab;
+}

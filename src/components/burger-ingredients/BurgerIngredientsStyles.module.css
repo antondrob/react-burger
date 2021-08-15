@@ -12,34 +12,6 @@
     cursor: pointer;
 }
 
-.listItem {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    text-decoration: none;
-}
-
-.listItemPrice {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: Iceland;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 28px;
-    line-height: 24px;
-}
-
-.listItemTitle {
-    font-family: JetBrains Mono;
-    font-size: 16px;
-    line-height: 24px;
-    text-align: center;
-    color: #F2F2F3;
-}
-
 .notification {
     position: absolute;
     right: 5px;
@@ -60,6 +32,12 @@
 
 .burgerBuilder {
     overflow-y: scroll;
+    scroll-behavior: smooth;
+}
+
+.burgerBuilder h2 {
+    margin: 0;
+    padding: 0.83em 0;
 }
 
 .burgerBuilder::-webkit-scrollbar {

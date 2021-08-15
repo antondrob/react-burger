@@ -1,120 +1,124 @@
-import React, {useContext} from 'react';
-import PropTypes from 'prop-types';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
+import {useSelector} from "react-redux";
 import {
-    Counter,
     Tab,
-    CurrencyIcon,
     Typography,
     Box
 } from '@ya.praktikum/react-developer-burger-ui-components';
 import BurgerIngredientsStyles from './BurgerIngredientsStyles.module.css';
-import {BurgerContext} from '../../services/contexts/BurgerContext';
+import BurgerIngredient from "../burger-ingredient/BurgerIngredient";
 
-function BurgerIngredients({openModal}) {
-    const [state, setState] = React.useState({
-        tabs: [
-            {
-                id: 'bun',
-                name: 'Булки',
-                active: true
-            },
-            {
-                id: 'sauce',
-                name: 'Соусы',
-                active: false
-            },
-            {
-                id: 'main',
-                name: 'Начинка',
-                active: false
-            }
-        ],
-        addedProducts: {
-            "60666c42cc7b410027a1a9b1": 1,
-            "60666c42cc7b410027a1a9b8": 1,
-            "60666c42cc7b410027a1a9b6": 2
+function BurgerIngredients() {
+    const ingredients = useSelector(store => store.ingredients.items);
+    const [tabs, setTabs] = useState([
+        {
+            id: 'bun',
+            name: 'Булки',
+            active: true
+        },
+        {
+            id: 'sauce',
+            name: 'Соусы',
+            active: false
+        },
+        {
+            id: 'main',
+            name: 'Начинка',
+            active: false
         }
-    });
-    const products = useContext(BurgerContext);
+    ]);
+
+    const scrollDiv = useRef(null),
+        bunHeader = useRef(null),
+        mainHeader = useRef(null),
+        sauceHeader = useRef(null);
+
+    const switchTab = useCallback((tab) => {
+        setTabs([
+            ...tabs.map(el => {
+                if (el.id === tab) {
+                    return {
+                        ...el,
+                        active: true
+                    }
+                } else {
+                    return {
+                        ...el,
+                        active: false
+                    }
+                }
+            })
+        ]);
+    }, [tabs]);
+
+    useEffect(() => {
+        const ingredientBlock = scrollDiv.current;
+        const scrollHandler = (event) => {
+            const scrollBlock = event.target.scrollTop + scrollDiv.current.offsetTop;
+            if (scrollBlock - mainHeader.current.offsetTop > 0) {
+                switchTab('main');
+            } else if (scrollBlock - sauceHeader.current.offsetTop > 0) {
+                switchTab('sauce');
+            } else {
+                switchTab('bun');
+            }
+        }
+        ingredientBlock.addEventListener('scroll', scrollHandler);
+        return () => {
+            ingredientBlock.removeEventListener('scroll', scrollHandler);
+        }
+    }, [switchTab]);
+
+    const scrollIngredients = useCallback((tab) => {
+        const bunHeaderoffsetTop = bunHeader.current.offsetTop - 10;
+        if (tab.id === 'bun') {
+            scrollDiv.current.scrollTo(0, 0);
+        } else if (tab.id === 'sauce') {
+            scrollDiv.current.scrollTo(0, sauceHeader.current.offsetTop - bunHeaderoffsetTop);
+        } else {
+            scrollDiv.current.scrollTo(0, mainHeader.current.offsetTop - bunHeaderoffsetTop);
+        }
+    }, []);
 
     return (
         <section className={BurgerIngredientsStyles.leftSidebar}>
             <div>
                 <div style={{display: 'flex'}}>
-                    {state.tabs.map((el, index) => {
+                    {tabs.map((el, index) => {
                         return (
-                            <Tab value={el.name} active={el.active} key={el.id}>
+                            <Tab value={el.name} active={el.active} key={el.id} onClick={() => scrollIngredients(el)}>
                                 {el.name}
                             </Tab>
                         )
                     })}
                 </div>
-                <div className={BurgerIngredientsStyles.burgerBuilder}>
+                <div ref={scrollDiv} className={BurgerIngredientsStyles.burgerBuilder}>
                     <div>
-                        <h2>Булки</h2>
+                        <h2 ref={bunHeader}>Булки</h2>
                         <ul className={BurgerIngredientsStyles.list}>
-                            {products.filter(el => el.type === 'bun').map((el, index) => {
+                            {ingredients.filter(el => el.type === 'bun').map((el, index) => {
                                 return (
-                                    <li key={el._id} onClick={(e) => {
-                                        openModal(el);
-                                    }}>
-                                        {el._id in state.addedProducts &&
-                                        <Counter count={state.addedProducts[el._id]} size="default"/>}
-                                        <div className={BurgerIngredientsStyles.listItem}>
-                                            <img src={el.image} alt={el.name}/>
-                                            <span
-                                                className={BurgerIngredientsStyles.listItemPrice}>{el.price / 100}
-                                                <CurrencyIcon
-                                                    type="primary"/></span>
-                                            <h3 className={BurgerIngredientsStyles.listItemTitle}>{el.name}</h3>
-                                        </div>
-                                    </li>
+                                    <BurgerIngredient key={el._id} item={el}/>
                                 )
                             })}
                         </ul>
                     </div>
                     <div>
-                        <h2>Соусы</h2>
+                        <h2 ref={sauceHeader}>Соусы</h2>
                         <ul className={BurgerIngredientsStyles.list}>
-                            {products.filter(el => el.type === 'sauce').map((el, index) => {
+                            {ingredients.filter(el => el.type === 'sauce').map((el, index) => {
                                 return (
-                                    <li key={el._id} onClick={(e) => {
-                                        openModal(el);
-                                    }}>
-                                        {el._id in state.addedProducts &&
-                                        <Counter count={state.addedProducts[el._id]} size="default"/>}
-                                        <div className={BurgerIngredientsStyles.listItem}>
-                                            <img src={el.image} alt={el.name}/>
-                                            <span
-                                                className={BurgerIngredientsStyles.listItemPrice}>{el.price / 100}
-                                                <CurrencyIcon
-                                                    type="primary"/></span>
-                                            <h3 className={BurgerIngredientsStyles.listItemTitle}>{el.name}</h3>
-                                        </div>
-                                    </li>
+                                    <BurgerIngredient key={el._id} item={el}/>
                                 )
                             })}
                         </ul>
                     </div>
                     <div>
-                        <h2>Начинка</h2>
+                        <h2 ref={mainHeader}>Начинка</h2>
                         <ul className={BurgerIngredientsStyles.list}>
-                            {products.filter(el => el.type === 'main').map((el, index) => {
+                            {ingredients.filter(el => el.type === 'main').map((el, index) => {
                                 return (
-                                    <li key={el._id} onClick={(e) => {
-                                        openModal(el);
-                                    }}>
-                                        {el._id in state.addedProducts &&
-                                        <Counter count={state.addedProducts[el._id]} size="default"/>}
-                                        <div className={BurgerIngredientsStyles.listItem}>
-                                            <img src={el.image} alt={el.name}/>
-                                            <span
-                                                className={BurgerIngredientsStyles.listItemPrice}>{el.price / 100}
-                                                <CurrencyIcon
-                                                    type="primary"/></span>
-                                            <h3 className={BurgerIngredientsStyles.listItemTitle}>{el.name}</h3>
-                                        </div>
-                                    </li>
+                                    <BurgerIngredient key={el._id} item={el}/>
                                 )
                             })}
                         </ul>
@@ -124,9 +128,5 @@ function BurgerIngredients({openModal}) {
         </section>
     )
 }
-
-BurgerIngredients.propTypes = {
-    openModal: PropTypes.func
-};
 
 export default React.memo(BurgerIngredients);
