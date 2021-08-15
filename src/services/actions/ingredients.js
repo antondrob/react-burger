@@ -10,7 +10,7 @@ export const getIngredients = () => (dispatch) => {
         type: GET_INGREDIENTS_REQUEST
     });
     return fetch(API_URL)
-        .then(checkReponse())
+        .then(checkReponse)
         .then(data => {
             if (data.success) {
                 dispatch({

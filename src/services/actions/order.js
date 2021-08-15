@@ -19,7 +19,7 @@ export const createOrder = (bun, notBun) => (dispatch) => {
             "ingredients": [...notBun, bun]
         })
     })
-        .then(checkReponse())
+        .then(checkReponse)
         .then(data => {
             if (data.success) {
                 dispatch({
