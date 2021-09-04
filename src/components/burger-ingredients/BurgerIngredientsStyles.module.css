@@ -5,13 +5,6 @@
     padding: unset;
 }
 
-.list li {
-    flex: 1;
-    max-width: 50%;
-    position: relative;
-    cursor: pointer;
-}
-
 .notification {
     position: absolute;
     right: 5px;

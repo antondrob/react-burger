@@ -1,15 +1,11 @@
 import React, {useCallback, useEffect, useRef, useState} from 'react';
 import {useSelector} from "react-redux";
-import {
-    Tab,
-    Typography,
-    Box
-} from '@ya.praktikum/react-developer-burger-ui-components';
+import {Tab} from '@ya.praktikum/react-developer-burger-ui-components';
 import BurgerIngredientsStyles from './BurgerIngredientsStyles.module.css';
 import BurgerIngredient from "../burger-ingredient/BurgerIngredient";
 
 function BurgerIngredients() {
-    const ingredients = useSelector(store => store.ingredients.items);
+    const {items} = useSelector(store => store.ingredients);
     const [tabs, setTabs] = useState([
         {
             id: 'bun',
@@ -95,33 +91,33 @@ function BurgerIngredients() {
                 <div ref={scrollDiv} className={BurgerIngredientsStyles.burgerBuilder}>
                     <div>
                         <h2 ref={bunHeader}>Булки</h2>
-                        <ul className={BurgerIngredientsStyles.list}>
-                            {ingredients.filter(el => el.type === 'bun').map((el, index) => {
+                        <div className={BurgerIngredientsStyles.list}>
+                            {items.filter(el => el.type === 'bun').map((el, index) => {
                                 return (
                                     <BurgerIngredient key={el._id} item={el}/>
                                 )
                             })}
-                        </ul>
+                        </div>
                     </div>
                     <div>
                         <h2 ref={sauceHeader}>Соусы</h2>
-                        <ul className={BurgerIngredientsStyles.list}>
-                            {ingredients.filter(el => el.type === 'sauce').map((el, index) => {
+                        <div className={BurgerIngredientsStyles.list}>
+                            {items.filter(el => el.type === 'sauce').map((el, index) => {
                                 return (
                                     <BurgerIngredient key={el._id} item={el}/>
                                 )
                             })}
-                        </ul>
+                        </div>
                     </div>
                     <div>
                         <h2 ref={mainHeader}>Начинка</h2>
-                        <ul className={BurgerIngredientsStyles.list}>
-                            {ingredients.filter(el => el.type === 'main').map((el, index) => {
+                        <div className={BurgerIngredientsStyles.list}>
+                            {items.filter(el => el.type === 'main').map((el, index) => {
                                 return (
                                     <BurgerIngredient key={el._id} item={el}/>
                                 )
                             })}
-                        </ul>
+                        </div>
                     </div>
                 </div>
             </div>

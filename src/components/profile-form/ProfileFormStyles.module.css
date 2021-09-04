@@ -1,0 +1,14 @@
+.inputWrapper {
+    margin-bottom: 24px;
+}
+
+.submitWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.link {
+    color: #4C4CFF;
+    text-decoration: none;
+}

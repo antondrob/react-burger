@@ -1,10 +1,16 @@
 import React from "react";
 import IngredientDetailsStyles from "./IngredientDetailsStyles.module.css";
-import {Typography} from '@ya.praktikum/react-developer-burger-ui-components';
 import PropTypes from "prop-types";
 import {igredientPropTypes} from "../../prop-types";
+import {useParams} from "react-router-dom";
+import {useSelector} from "react-redux";
 
 function IngredientDetails({details}) {
+    const {id} = useParams();
+    const {items} = useSelector(store => store.ingredients);
+
+    const ingredient = details ?? items.find(el => el._id === id);
+
     const nutritionalValue = {
         calories: 'Калории, ккал',
         proteins: 'Белки, г',
@@ -13,13 +19,13 @@ function IngredientDetails({details}) {
     };
     return (
         <div className={IngredientDetailsStyles.ingredientDetails}>
-            <img alt={details.name} src={details.image_large}/>
-            <h3 className="text text_type_main-medium">{details.name}</h3>
+            <img alt={ingredient.name} src={ingredient.image_large}/>
+            <h3 className="text text_type_main-medium">{ingredient.name}</h3>
             <div className={IngredientDetailsStyles.nutritionalValues}>
                 {Object.keys(nutritionalValue).map(key => (
                     <div key={key}>
                         <p>{nutritionalValue[key]}</p>
-                        <p>{details[key]}</p>
+                        <p>{ingredient[key]}</p>
                     </div>
                 ))}
             </div>
@@ -28,7 +34,7 @@ function IngredientDetails({details}) {
 }
 
 IngredientDetails.propTypes = {
-    details: PropTypes.shape(igredientPropTypes).isRequired
+    details: PropTypes.shape(igredientPropTypes)
 };
 
 export default IngredientDetails;
