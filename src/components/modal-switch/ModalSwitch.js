@@ -11,7 +11,7 @@ import {
     RegisterPage,
     ResetPasswordPage
 } from "../../pages";
-import ProtectedRoute from "../protected-route/ProtectedRoute";
+import ProtectedRoute from "../../hocs/protected-route/ProtectedRoute";
 import React from "react";
 
 export default function ModalSwitch() {
