@@ -1,13 +1,11 @@
 import styles from "./ProfileMenuStyles.module.css";
-import {Link, NavLink, useHistory} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 import React from "react";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {logout} from "../../services/actions/user";
 
 export default function ProfileMenu() {
     const dispatch = useDispatch();
-    const user = useSelector(store => store.user);
-    const history = useHistory();
 
     const logoutClick = (e) => {
         e.preventDefault();
