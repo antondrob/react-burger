@@ -8,7 +8,6 @@ export const preloadedState = {
         bun: null,
         notBun: []
     },
-    ingredient: null,
     user: {
         data: null,
         login: {

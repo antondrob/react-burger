@@ -1,27 +1,20 @@
 import React, {useState} from 'react';
 import styles from "./login.module.css";
 import {Input, PasswordInput, Button} from '@ya.praktikum/react-developer-burger-ui-components';
-import {Link, useHistory} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import {login} from "../../services/actions/user";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 
 export const LoginPage = () => {
-    const user = useSelector(store => store.user);
     const dispatch = useDispatch();
-    const history = useHistory();
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const onSubmit = async (e) => {
+    const onSubmit = (e) => {
         e.preventDefault();
         if (email && password) {
-            const lastVisitedRoute = localStorage.getItem('lastVisitedRoute');
-            await dispatch(login(email, password));
-            if (!user.login.failed && lastVisitedRoute) {
-                localStorage.removeItem('lastVisitedRoute');
-                history.replace({pathname: lastVisitedRoute});
-            }
+            dispatch(login(email, password));
         }
     }
 

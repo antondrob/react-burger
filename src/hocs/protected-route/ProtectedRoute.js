@@ -1,19 +1,39 @@
 import {useSelector} from "react-redux";
-import {Redirect, Route} from "react-router-dom";
+import {Redirect, Route, useLocation} from "react-router-dom";
 import {getCookie} from "../../services/helperFunctions";
 
 export default function ProtectedRoute({children, ...rest}) {
     const user = useSelector(store => store.user);
+    const location = useLocation();
     const refreshToken = getCookie('refreshToken');
     switch (rest.path) {
         case '/profile':
         case '/profile/orders':
-            if (!refreshToken) {
-                localStorage.setItem('lastVisitedRoute', rest.location.pathname);
-            }
-            return refreshToken ? <Route {...rest}>{children}</Route> : <Redirect to={{pathname: '/login'}}/>
+            return (
+                <Route
+                    {...rest}
+                    render={({location}) => refreshToken ? (
+                        children
+                    ) : (
+                        <Redirect
+                            to={{
+                                pathname: '/login',
+                                state: {from: location}
+                            }}
+                        />
+                    )}
+                />
+            )
         case '/login':
-            return !refreshToken ? <Route {...rest}>{children}</Route> : <Redirect to={{pathname: '/'}}/>
+            if (refreshToken) {
+                const { from } = location.state || { from: { pathname: '/' } };
+                return (
+                    <Redirect
+                        to={from}
+                    />
+                );
+            }
+            return <Route {...rest}>{children}</Route>
         case '/register':
             return !refreshToken ? <Route {...rest}>{children}</Route> : <Redirect to={{pathname: '/profile'}}/>
         case '/forgot-password':

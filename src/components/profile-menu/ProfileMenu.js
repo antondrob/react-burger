@@ -9,13 +9,9 @@ export default function ProfileMenu() {
     const user = useSelector(store => store.user);
     const history = useHistory();
 
-    const logoutClick = async (e) => {
+    const logoutClick = (e) => {
         e.preventDefault();
-        await dispatch(logout());
-        if (!user.logout.failed) {
-            localStorage.removeItem('lastVisitedRoute');
-            history.replace({pathname: '/login'});
-        }
+        dispatch(logout());
     };
     return (
         <>
