@@ -3,24 +3,20 @@ import {DndProvider} from "react-dnd";
 import {HTML5Backend} from "react-dnd-html5-backend";
 import BurgerIngredients from "../../components/burger-ingredients/BurgerIngredients";
 import BurgerConstructor from "../../components/burger-constructor/BurgerConstructor";
-import React, {useEffect} from "react";
-import {useDispatch, useSelector} from "react-redux";
-import {getIngredients} from "../../services/actions/ingredients";
+import React from "react";
+import {useSelector} from "react-redux";
+import Loading from "../../components/loading/Loading";
 
 export const HomePage = () => {
-    const dispatch = useDispatch();
-    const {items} = useSelector(store => store.ingredients);
-    useEffect(() => {
-        if (items.length === 0) {
-            dispatch(getIngredients());
-        }
-    }, [dispatch, items.length]);
+    const {items, ingredientsRequest, ingredientsFailed} = useSelector(store => store.ingredients);
     return (
         <>
             <h1>Соберите бургер</h1>
             <main className={styles.content}>
                 <DndProvider backend={HTML5Backend}>
-                    <BurgerIngredients/>
+                    {items.length > 0 ? <BurgerIngredients/> :
+                        <Loading request={ingredientsRequest} fail={ingredientsFailed}/>
+                    }
                     <BurgerConstructor/>
                 </DndProvider>
             </main>

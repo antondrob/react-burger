@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import {
     Logo,
     BurgerIcon,
@@ -7,15 +7,8 @@ import {
 } from '@ya.praktikum/react-developer-burger-ui-components';
 import styles from './AppHeader.module.css';
 import {Link, NavLink} from 'react-router-dom';
-import {getCookie} from "../../services/helperFunctions";
-import {useSelector} from "react-redux";
 
 function AppHeader() {
-    const [refreshToken, setRefreshToken] = useState(getCookie('refreshToken'));
-    const user = useSelector(store => store.user.data);
-    useEffect(() => {
-        setRefreshToken(getCookie('refreshToken'));
-    }, [user]);
     return (
         <header className={styles.header}>
             <div className={styles.headerWrapper}>
@@ -36,7 +29,7 @@ function AppHeader() {
                         </Link>
                     </div>
                     <div className={styles.lkSection}>
-                        <NavLink to={refreshToken ? '/profile' : '/login'} className={styles.menuLkItem} activeClassName={styles.menuItemActive}>
+                        <NavLink to="/profile" className={styles.menuLkItem} activeClassName={styles.menuItemActive}>
                             <ProfileIcon type="secondary"/>
                             <span className="ml-3">Личный кабинет</span>
                         </NavLink>
