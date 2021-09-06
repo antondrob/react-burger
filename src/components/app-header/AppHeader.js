@@ -3,38 +3,39 @@ import {
     Logo,
     BurgerIcon,
     ListIcon,
-    ProfileIcon,
-    Typography,
-    Box
+    ProfileIcon
 } from '@ya.praktikum/react-developer-burger-ui-components';
-import headerStyles from './AppHeader.module.css';
+import styles from './AppHeader.module.css';
+import {Link, NavLink} from 'react-router-dom';
 
 function AppHeader() {
     return (
-        <header className={headerStyles.header}>
-            <nav className={headerStyles.menuItems}>
-                <div className={headerStyles.menuItemSection}>
-                    <a href="/" className={headerStyles.menuItemActive}>
-                        <BurgerIcon type="primary"/>
-                        <span className="ml-3">Конструктор</span>
-                    </a>
-                    <a href="/" className={headerStyles.menuItem}>
-                        <ListIcon type="secondary"/>
-                        <span className="ml-3">Лента заказов</span>
-                    </a>
-                </div>
-                <div className={headerStyles.logoSection}>
-                    <a href="/">
-                        <Logo/>
-                    </a>
-                </div>
-                <div className={headerStyles.lkSection}>
-                    <a href="/" className={headerStyles.menuLkItem}>
-                        <ProfileIcon type="secondary"/>
-                        <span className="ml-3">Личный кабинет</span>
-                    </a>
-                </div>
-            </nav>
+        <header className={styles.header}>
+            <div className={styles.headerWrapper}>
+                <nav className={styles.menuItems}>
+                    <div className={styles.menuItemSection}>
+                        <NavLink exact to="/" className={styles.menuItem} activeClassName={styles.menuItemActive}>
+                            <BurgerIcon type="secondary"/>
+                            <span className="ml-3">Конструктор</span>
+                        </NavLink>
+                        <a href="/" className={styles.menuItem}>
+                            <ListIcon type="secondary"/>
+                            <span className="ml-3">Лента заказов</span>
+                        </a>
+                    </div>
+                    <div className={styles.logoSection}>
+                        <Link to="/">
+                            <Logo/>
+                        </Link>
+                    </div>
+                    <div className={styles.lkSection}>
+                        <NavLink to="/profile" className={styles.menuLkItem} activeClassName={styles.menuItemActive}>
+                            <ProfileIcon type="secondary"/>
+                            <span className="ml-3">Личный кабинет</span>
+                        </NavLink>
+                    </div>
+                </nav>
+            </div>
         </header>
     );
 }

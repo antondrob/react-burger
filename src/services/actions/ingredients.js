@@ -1,5 +1,5 @@
 import {API_URL} from '../apiVariables';
-import {checkReponse} from "../checkResponse";
+import {checkResponse} from "../helperFunctions";
 
 export const GET_INGREDIENTS_REQUEST = 'GET_INGREDIENTS_REQUEST';
 export const GET_INGREDIENTS_SUCCESS = 'GET_INGREDIENTS_SUCCESS';
@@ -10,7 +10,7 @@ export const getIngredients = () => (dispatch) => {
         type: GET_INGREDIENTS_REQUEST
     });
     return fetch(API_URL)
-        .then(checkReponse)
+        .then(checkResponse)
         .then(data => {
             if (data.success) {
                 dispatch({

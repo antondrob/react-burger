@@ -1,0 +1,14 @@
+.section {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    min-height: 300px;
+}
+
+.loadingGif {
+    width: 65px;
+}
+
+.error {
+    margin-bottom: 120px;
+}

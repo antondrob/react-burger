@@ -1,0 +1,23 @@
+.profileMenu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 80px 0;
+}
+
+.profileLink {
+    text-decoration: none;
+    color: #8585AD;
+}
+
+.profileLink:hover {
+    color: #fff;
+}
+
+.profileLinkActive {
+    composes: profileLink;
+    color: #fff;
+}
+
+.info {
+    color: #8585AD;
+}

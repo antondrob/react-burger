@@ -5,25 +5,30 @@ import ModalOverlay from '../modal-overlay/ModalOverlay';
 import ModalStyles from './ModalStyles.module.css';
 import {CloseIcon} from '@ya.praktikum/react-developer-burger-ui-components';
 import PropTypes from "prop-types";
-import {closeModal} from '../../services/actions/modal';
 import {ESC_KEYCODE} from '../../services/apiVariables';
+import {useHistory} from "react-router-dom";
 
 const modalRoot = document.getElementById("react-modals");
 
 function Modal({children, header}) {
     const dispatch = useDispatch();
+    const history = useHistory();
+
+    const closeModal = (history) => {
+        history.goBack();
+    }
 
     useEffect(() => {
         const handleEsc = (event) => {
             if (event.keyCode === ESC_KEYCODE) {
-                dispatch(closeModal())
+                closeModal(history);
             }
         };
         document.addEventListener('keydown', handleEsc);
         return () => {
             document.removeEventListener('keydown', handleEsc);
         }
-    }, [dispatch]);
+    }, [dispatch, history]);
 
     return ReactDOM.createPortal(
         (
@@ -31,13 +36,11 @@ function Modal({children, header}) {
                 <div className={ModalStyles.modal}>
                     <div className={ModalStyles.headingWrapper}>
                         <h2 className="text text_type_main-large">{header}</h2>
-                        <CloseIcon type="primary" onClick={() => {
-                            dispatch(closeModal())
-                        }}/>
+                        <CloseIcon type="primary" onClick={() => {closeModal(history)}}/>
                     </div>
                     {children}
                 </div>
-                <ModalOverlay/>
+                <ModalOverlay closeModal={closeModal}/>
             </>
         ),
         modalRoot
