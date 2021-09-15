@@ -6,21 +6,19 @@ import {
 } from '@ya.praktikum/react-developer-burger-ui-components';
 import BurgerConstructorStyles from './BurgerConstructorStyles.module.css';
 import {useSelector, useDispatch} from "react-redux";
-import {ADD_TO_BURGER, CLEAR_BURGER, REORDER_BURGER} from "../../services/actions/burgerConstructor";
-
+import {ADD_TO_BURGER, REORDER_BURGER} from "../../services/actions/burgerConstructor";
 import {useDrop} from "react-dnd";
 import update from 'immutability-helper';
 import SortableIngredient from '../sortable-ingredient/SortableIngredient';
 import {v4 as uuidv4} from 'uuid';
-import {ORDER_URL} from "../../services/apiVariables";
-import {checkResponse, getCookie} from "../../services/helperFunctions";
-import {useHistory, useLocation} from "react-router-dom";
+import {getCookie} from "../../services/helperFunctions";
+import {useHistory} from "react-router-dom";
+import {createOrder} from "../../services/actions/order";
 
 function BurgerConstructor() {
     const {notBun, bun} = useSelector(store => store.burger);
     const {items} = useSelector(store => store.ingredients);
     const history = useHistory();
-    const location = useLocation();
     const orderTotal = useMemo(() => {
         return notBun.reduce(function (acc, obj) {
             let price = obj.price;
@@ -71,7 +69,7 @@ function BurgerConstructor() {
     });
     const borderColor = isHover ? '#e3abff' : 'transparent';
 
-    const createOrder = () => {
+    const createOrderHandler = () => {
         if (!getCookie('refreshToken')) {
             history.push('/login');
             return false;
@@ -79,32 +77,7 @@ function BurgerConstructor() {
             alert('Choose ingredients!');
             return false;
         }
-        fetch(ORDER_URL, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                "ingredients": [...notBun, bun]
-            })
-        })
-            .then(checkResponse)
-            .then(res => {
-                if (res.success) {
-                    dispatch({type: CLEAR_BURGER});
-                    history.push({
-                        pathname: `/profile/orders/${res.order.number}`,
-                        state: {
-                            background: location,
-                            order: res.order
-                        }
-                    });
-                } else {
-                    throw new Error(res.message);
-                }
-            }).catch(error => {
-            alert(error.message);
-        });
+        dispatch(createOrder([...notBun, bun, bun]));
     }
 
     return (
@@ -147,7 +120,7 @@ function BurgerConstructor() {
             <div className={BurgerConstructorStyles.checkout}>
                 <div className={BurgerConstructorStyles.total}>{orderTotal} <CurrencyIcon type="primary"/></div>
                 <div>
-                    <Button onClick={createOrder} type="primary"
+                    <Button onClick={createOrderHandler} type="primary"
                             size="large">Оформить
                         заказ</Button>
                 </div>

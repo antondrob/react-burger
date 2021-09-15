@@ -12,3 +12,18 @@
     color: #4C4CFF;
     text-decoration: none;
 }
+
+.sidesWrapper {
+    display: flex;
+}
+
+.leftSide {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rightSide {
+    flex: 1;
+}

@@ -48,3 +48,39 @@ export const deleteCookies = (cookies = []) => {
         deleteCookie(el);
     })
 }
+
+export const generateOrderItems = (ingredients, items) => {
+    let products = null;
+    ingredients.forEach(el => {
+        const product = items.find(item => item._id === el);
+        if (products === null) {
+            products = {
+                metaData: {
+                    [el]: {
+                        amount: 1,
+                        name: product.name,
+                        image: product.image_mobile,
+                        price: product.price,
+                        id: el
+                    }
+                },
+                keys: [el],
+                orderTotal: product.price
+            }
+        } else if (!(el in products.metaData)) {
+            products.metaData[el] = {
+                amount: 1,
+                name: product.name,
+                image: product.image_mobile,
+                price: product.price,
+                id: el
+            }
+            products['keys'].push(el);
+            products['orderTotal'] += product.price;
+        } else if (el in products.metaData) {
+            products.metaData[el].amount += 1;
+            products['orderTotal'] += product.price;
+        }
+    });
+    return products;
+}

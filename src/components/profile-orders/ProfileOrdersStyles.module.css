@@ -1,0 +1,42 @@
+.ordersFeed {
+    top: -90px;
+    position: relative;
+    overflow-y: scroll;
+}
+
+.ordersFeed::-webkit-scrollbar {
+    width: 8px;
+}
+
+.ordersFeed::-webkit-scrollbar-track {
+    box-shadow: #8585AD;
+}
+
+.ordersFeed::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+}
+
+@media screen and (max-height: 1000px) {
+    .ordersFeed {
+        max-height: 800px;
+    }
+}
+
+@media screen and (max-height: 900px) {
+    .ordersFeed {
+        max-height: 700px;
+    }
+}
+
+@media screen and (max-height: 800px) {
+    .ordersFeed {
+        max-height: 600px;
+    }
+}
+
+@media screen and (max-height: 700px) {
+    .ordersFeed {
+        max-height: 500px;
+    }
+}

@@ -1,4 +1,4 @@
-import {LOGIN_URL} from "../apiVariables";
+import {LOGIN_URL} from "../appVariables";
 import {checkResponse} from "../helperFunctions";
 
 export const LOGIN_REQUEST = 'CREATE_ORDER_REQUEST';

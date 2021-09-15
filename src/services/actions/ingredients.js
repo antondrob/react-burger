@@ -1,4 +1,4 @@
-import {API_URL} from '../apiVariables';
+import {API_URL} from '../appVariables';
 import {checkResponse} from "../helperFunctions";
 
 export const GET_INGREDIENTS_REQUEST = 'GET_INGREDIENTS_REQUEST';

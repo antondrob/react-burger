@@ -1,7 +1,8 @@
 import {useLocation, useHistory, Route, Switch} from 'react-router-dom';
 import Modal from "../modal/Modal";
 import IngredientDetails from "../ingredient-details/IngredientDetails";
-import OrderDetails from "../order-details/OrderDetails";
+import OrderCreated from "../order-created/OrderCreated";
+import OrderDetails from '../order-details/OrderDetails';
 import {
     ForgotPasswordPage,
     HomePage,
@@ -9,14 +10,18 @@ import {
     LoginPage, NotFoundPage,
     ProfilePage,
     RegisterPage,
-    ResetPasswordPage
+    ResetPasswordPage,
+    FeedPage,
+    OrderDetailsPage
 } from "../../pages";
 import ProtectedRoute from "../../hocs/protected-route/ProtectedRoute";
 import React from "react";
+import {useSelector} from "react-redux";
 
 export default function ModalSwitch() {
     const location = useLocation();
     const history = useHistory();
+    const {data: order} = useSelector(store => store.order);
     const background = (history.action === 'PUSH' || history.action === 'REPLACE') && location.state && location.state.background;
 
     return (
@@ -25,6 +30,15 @@ export default function ModalSwitch() {
                 <Route path="/" exact>
                     <HomePage/>
                 </Route>
+                <Route path="/feed" exact>
+                    <FeedPage/>
+                </Route>
+                <Route path="/feed/:id" exact>
+                    <OrderDetailsPage/>
+                </Route>
+                <ProtectedRoute path="/profile/orders/:id" exact>
+                    <OrderDetailsPage />
+                </ProtectedRoute>
                 <ProtectedRoute path="/login" exact>
                     <LoginPage/>
                 </ProtectedRoute>
@@ -53,7 +67,17 @@ export default function ModalSwitch() {
                     path="/ingredients/:id"
                     children={
                         <Modal>
-                            <IngredientDetails />
+                            <IngredientDetails/>
+                        </Modal>
+                    }
+                />
+            )}
+            {background && (
+                <Route
+                    path="/feed/:id"
+                    children={
+                        <Modal>
+                            <OrderDetails/>
                         </Modal>
                     }
                 />
@@ -67,6 +91,11 @@ export default function ModalSwitch() {
                         </Modal>
                     }
                 />
+            )}
+            {order && (
+                <Modal>
+                    <OrderCreated/>
+                </Modal>
             )}
         </>
     );

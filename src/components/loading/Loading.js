@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 const Loading = ({request, fail}) => {
     return (
         <section className={styles.section}>
-            {request ? <img className={styles.loadingGif} src={gif} alt="Loading..."/> :
+            {request || !fail ? <img className={styles.loadingGif} src={gif} alt="Loading..."/> :
                 <p className={styles.error}>Произошла ошибка при попытке получить данные с сервера.</p>
             }
         </section>

@@ -18,10 +18,10 @@ function AppHeader() {
                             <BurgerIcon type="secondary"/>
                             <span className="ml-3">Конструктор</span>
                         </NavLink>
-                        <a href="/" className={styles.menuItem}>
+                        <NavLink to="/feed" className={styles.menuItem} activeClassName={styles.menuItemActive}>
                             <ListIcon type="secondary"/>
                             <span className="ml-3">Лента заказов</span>
-                        </a>
+                        </NavLink>
                     </div>
                     <div className={styles.logoSection}>
                         <Link to="/">
