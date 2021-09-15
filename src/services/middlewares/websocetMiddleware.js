@@ -9,12 +9,12 @@ import {
 
 export const socketMiddleware = (store) => {
     let socket = null;
-    const token = getCookie('accessToken').replace('Bearer ', '');
     return next => action => {
         const {dispatch} = store;
         const {type, payload} = action;
 
         if (type === WS_CONNECTION_START) {
+            const token = getCookie('accessToken').replace('Bearer ', '');
             socket = new WebSocket(payload.secure ? `${payload.url}?token=${token}` : payload.url);
         }
         if (socket) {

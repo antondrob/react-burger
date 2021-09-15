@@ -17,17 +17,11 @@ export const websocketReducer = (state = preloadedState.websocket, action) => {
         case WS_CONNECTION_ERROR:
             return {
                 ...state,
-                error: action.payload,
+                error: action.payload?.code ?? 'WebSocket error',
                 wsConnected: false
             }
         case WS_CONNECTION_CLOSED:
-            return {
-                orders: null,
-                total: null,
-                totalToday: null,
-                error: null,
-                wsConnected: false
-            }
+            return preloadedState.websocket;
         case WS_GET_ORDERS:
             return {
                 ...state,

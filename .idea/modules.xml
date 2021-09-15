@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../../Bucket/.idea/Bucket.iml" filepath="$PROJECT_DIR$/../../Bucket/.idea/Bucket.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../Git/GitHub/.idea/GitHub.iml" filepath="$PROJECT_DIR$/../../Git/GitHub/.idea/GitHub.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/react-burger.iml" filepath="$PROJECT_DIR$/.idea/react-burger.iml" />
       <module fileurl="file://$PROJECT_DIR$/../../Git/Bitbucket/OnePix/satim-payment-gateway-for-woocommerce/.idea/satim-payment-gateway-for-woocommerce.iml" filepath="$PROJECT_DIR$/../../Git/Bitbucket/OnePix/satim-payment-gateway-for-woocommerce/.idea/satim-payment-gateway-for-woocommerce.iml" />
       <module fileurl="file://$PROJECT_DIR$/../../Git/Bitbucket/Winston/smokeshopwholesalers-distributor-importer-plugin-woocommerce/.idea/smokeshopwholesalers-distributor-importer-plugin-woocommerce.iml" filepath="$PROJECT_DIR$/../../Git/Bitbucket/Winston/smokeshopwholesalers-distributor-importer-plugin-woocommerce/.idea/smokeshopwholesalers-distributor-importer-plugin-woocommerce.iml" />

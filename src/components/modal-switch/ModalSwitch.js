@@ -37,7 +37,7 @@ export default function ModalSwitch() {
                     <OrderDetailsPage/>
                 </Route>
                 <ProtectedRoute path="/profile/orders/:id" exact>
-                    <OrderDetailsPage />
+                    <OrderDetailsPage/>
                 </ProtectedRoute>
                 <ProtectedRoute path="/login" exact>
                     <LoginPage/>

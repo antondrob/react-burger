@@ -9,6 +9,7 @@ export default function ProtectedRoute({children, ...rest}) {
     switch (rest.path) {
         case '/profile':
         case '/profile/orders':
+        case '/profile/orders/:id':
             return (
                 <Route
                     {...rest}

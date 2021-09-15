@@ -2,57 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5016bf85-4fb3-46cf-bc8d-af0780ef0ddc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/order-created/OrderCreated.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/order-created/OrderCreatedStyles.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/orders-feed/OrdersFeedStyles.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/feed/feed.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/feed/feedStyles.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/order-details/order-details.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/order-details/orderDetailsStyles.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/actions/order.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/actions/websocket.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/appVariables.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/middlewares/websocetMiddleware.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/reducers/orderReducer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/reducers/websocketReducer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/orders-stat/OrdersStat.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/orders-stat/OrdersStatStyles.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/react-burger.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/react-burger.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/app-header/AppHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app-header/AppHeader.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/burger-constructor/BurgerConstructor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/burger-constructor/BurgerConstructor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/loading/Loading.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/loading/Loading.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/app/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app/App.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/modal-switch/ModalSwitch.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal-switch/ModalSwitch.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/modal/Modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal/Modal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/modal/ModalStyles.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal/ModalStyles.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/order-details/OrderDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/order-details/OrderDetails.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/order-details/OrderDetailsStyles.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/order-details/OrderDetailsStyles.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/profile-form/ProfileForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/profile-form/ProfileForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/profile-form/ProfileFormStyles.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/profile-form/ProfileFormStyles.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/profile-order/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/orders-feed/OrdersFeed.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/profile-order/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/profile-order/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/profile-order/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/profile-order/.idea/profile-order.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/profile-order/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/profile-order/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/profile-order/ProfileOrder.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/profile-order/ProfileOrder.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/profile-orders/ProfileOrders.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/profile-orders/ProfileOrders.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/profile-orders/ProfileOrdersStyles.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/profile-orders/ProfileOrdersStyles.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/profile/profile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/profile/profile.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/profile/profile.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/profile/profile.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/actions/ingredients.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/actions/ingredients.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/actions/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/actions/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/actions/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/actions/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/apiVariables.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/helperFunctions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/helperFunctions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/preloadedState.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/preloadedState.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/reducers/burgerReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/reducers/burgerReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/reducers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/reducers/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/orders-feed/OrdersFeed.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/orders-feed/OrdersFeed.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hocs/protected-route/ProtectedRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/hocs/protected-route/ProtectedRoute.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/feed/feed.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/feed/feed.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/feed/feedStyles.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/feed/feedStyles.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/middlewares/websocetMiddleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/middlewares/websocetMiddleware.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/reducers/websocketReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/reducers/websocketReducer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +43,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Bucket" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Git/GitHub" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="ts.external.directory.path" value="C:\Users\acer\Desktop\Work\React.js\react-burger\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -99,7 +62,7 @@
       <option name="presentableId" value="Default" />
       <updated>1631460576684</updated>
       <workItem from="1631460578251" duration="57546000" />
-      <workItem from="1631650419763" duration="18679000" />
+      <workItem from="1631650419763" duration="34369000" />
     </task>
     <servers />
   </component>

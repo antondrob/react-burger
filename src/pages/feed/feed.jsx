@@ -1,12 +1,12 @@
-import {WS_ALL_ORDERS, TABLE_ORDERS_LIMIT} from '../../services/appVariables';
+import {WS_ALL_ORDERS} from '../../services/appVariables';
 import styles from './feedStyles.module.css'
 import OrdersFeed from "../../components/orders-feed/OrdersFeed";
 import {useEffect} from "react";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {WS_CONNECTION_START, WS_CONNECTION_FINISH} from "../../services/actions/websocket";
+import OrdersStat from "../../components/orders-stat/OrdersStat";
 
 export const FeedPage = () => {
-    const {orders, total, totalToday} = useSelector(store => store.websocket);
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch({
@@ -30,39 +30,9 @@ export const FeedPage = () => {
                 <section className={styles.ordersFeed}>
                     <OrdersFeed/>
                 </section>
-                {orders && <>
-                    <section className={styles.ordersTotalsSection}>
-                        <div className={styles.ordersTable}>
-                            <div className={styles.completedOrders}>
-                                <h4 className="text text_type_main-medium">Готовы:</h4>
-                                <ul className={styles.orderIds}>
-                                    {orders.splice(0, TABLE_ORDERS_LIMIT).map(order => {
-                                        return order.status === 'done' ?
-                                            <li key={order.number}>{order.number}</li> : null
-                                    })}
-                                </ul>
-                            </div>
-                            <div>
-                                <h4 className="text text_type_main-medium">В работе:</h4>
-                                <ul className={styles.orderIds}>
-                                    {orders.splice(0, TABLE_ORDERS_LIMIT).map(order => {
-                                        return order.status === 'pending' || order.status === 'created' ?
-                                            <li key={order.number}>{order.number}</li> :
-                                            null;
-                                    })}
-                                </ul>
-                            </div>
-                        </div>
-                        <div className={styles.ordersTotals}>
-                            <h4 className="text text_type_main-medium">Выполнено за все время:</h4>
-                            <p className="text text_type_digits-large">{total}</p>
-                        </div>
-                        <div>
-                            <h4 className="text text_type_main-medium">Выполнено за сегодня:</h4>
-                            <p className="text text_type_digits-large">{totalToday}</p>
-                        </div>
-                    </section>
-                </>}
+                <section>
+                    <OrdersStat/>
+                </section>
             </main>
         </div>
 

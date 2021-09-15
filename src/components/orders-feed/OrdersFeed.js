@@ -14,9 +14,12 @@ const OrdersFeed = () => {
     const {orders, wsConnected, error} = useSelector(store => store.websocket);
     const {items, ingredientsRequest, ingredientsFailed} = useSelector(store => store.ingredients);
     return (
-        orders ?
+        orders && items ?
         <ul className={styles.ordersList}>
-            {orders && orders.map((order, i) => {
+            {orders && orders.map(order => {
+                if (order.ingredients.length < 1) {
+                    return null;
+                }
                 const orderItems = generateOrderItems(order.ingredients, items);
                 return (
                     <li key={order._id}>
@@ -53,8 +56,7 @@ const OrdersFeed = () => {
                     </li>
                 )
             })}
-        </ul> : !wsConnected && error ?
-            <p>{error}</p> :
+        </ul> :
             <Loading fail={ingredientsFailed || error ? true : false} request={ingredientsRequest || !wsConnected} />
     )
 }
