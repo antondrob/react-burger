@@ -8,6 +8,18 @@ export const preloadedState = {
         bun: null,
         notBun: []
     },
+    order: {
+        data: null,
+        orderRequest: false,
+        orderRailed: false
+    },
+    websocket: {
+        orders: null,
+        total: null,
+        totalToday: null,
+        wsConnected: false,
+        error: null
+    },
     user: {
         data: null,
         login: {

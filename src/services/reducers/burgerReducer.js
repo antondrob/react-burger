@@ -25,7 +25,7 @@ export const burgerReducer = (state = preloadedState.burger, action) => {
                         uniqueId: action.uniqueId
                     }
                 ]
-            };
+            }
         case REMOVE_FROM_BURGER:
             return {
                 ...state,
@@ -35,7 +35,7 @@ export const burgerReducer = (state = preloadedState.burger, action) => {
             return {
                 ...state,
                 notBun: action.payload
-            };
+            }
         case CLEAR_BURGER:
             return preloadedState.burger;
         default:

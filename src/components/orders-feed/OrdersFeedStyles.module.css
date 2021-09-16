@@ -1,0 +1,122 @@
+.ordersList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.orderLink {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    padding: 24px;
+    background: #1C1C21;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 0px 2px rgba(0, 0, 0, 0.06), 0px 0px 1px rgba(0, 0, 0, 0.04);
+    border-radius: 40px;
+    margin-bottom: 16px;
+}
+
+.orderTop {
+    display: flex;
+    justify-content: space-between;
+}
+
+.orderID {
+    font-family: Iceland;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 28px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    color: #F2F2F3;
+}
+
+.orderTitle {
+    color: #F2F2F3;
+}
+
+.orderBottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.orderItems {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+.orderItem {
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(90deg, #801ab2, #4c4cff);
+    border-radius: 50%;
+    height: 64px;
+    width: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -12px;
+}
+
+.orderItem:last-child {
+    margin-left: unset;
+}
+
+.orderItem:before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    background-color: #131316;
+    border-radius: 50%;
+}
+
+.orderItem img {
+    height: 50px;
+    width: auto;
+    z-index: 1;
+}
+
+.orderItem span {
+    position: absolute;
+    color: #F2F2F3;
+    z-index: 1;
+}
+
+.orderTotal {
+    display: flex;
+}
+
+.orderCost {
+    font-family: Iceland;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 28px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    text-align: right;
+    color: #F2F2F3;
+}
+
+.orderStatus {
+    margin-top: 10px;
+}
+
+.done {
+    color: #00CCCC;
+}
+
+.done {
+    color: #00CCCC;
+}
+
+.canceled {
+    color: #df0101;
+}

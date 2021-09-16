@@ -16,6 +16,20 @@
           </mappings>
         </serverdata>
       </paths>
+      <paths name="burnerssmokeshop.com">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="everland-music.com">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
       <paths name="focusplus.dk">
         <serverdata>
           <mappings>

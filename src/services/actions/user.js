@@ -7,7 +7,7 @@ import {
     LOGOUT_URL,
     USER_URL,
     TOKEN_URL
-} from "../apiVariables";
+} from "../appVariables";
 import {checkResponse, deleteCookie, deleteCookies, getCookie, setCookie} from "../helperFunctions";
 
 // Login actions
@@ -39,7 +39,7 @@ export const UPDATE_USER_REQUEST = 'UPDATE_USER_REQUEST';
 export const UPDATE_USER_SUCCESS = 'UPDATE_USER_SUCCESS';
 export const UPDATE_USER_FAIL = 'UPDATE_USER_FAIL';
 
-const refreshToken = (afterRefresh, call = false) => async (dispatch) => {
+export const refreshToken = (afterRefresh, call = false) => async (dispatch) => {
     return await fetch(TOKEN_URL, {
         method: 'POST',
         headers: {

@@ -4,5 +4,10 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="smokeshopwholesalers-distributor-importer-plugin-woocommerce" />
+    <orderEntry type="module" module-name="satim-payment-gateway-for-woocommerce" />
+    <orderEntry type="module" module-name="Bucket" />
+    <orderEntry type="module" module-name="wcfm.loc" />
+    <orderEntry type="module" module-name="GitHub" />
   </component>
 </module>

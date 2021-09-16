@@ -1,0 +1,43 @@
+.ordersTable {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 60px;
+}
+
+.ordersTable > div {
+    flex: 1;
+}
+
+.ordersTable h4 {
+    margin-bottom: 24px;
+}
+
+.completedOrders li {
+    color: #00CCCC;
+}
+
+.orderIds {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-rows: repeat(5, auto);
+    grid-auto-flow: column;
+}
+
+.orderIds li {
+    font-family: Iceland;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 28px;
+    line-height: 24px;
+    margin-bottom: 8px;
+}
+
+.ordersTotals p {
+    text-shadow: 0 0 16px rgb(51 51 255 / 25%), 0 0 8px rgb(51 51 255 / 25%), 0 4px 32px rgb(51 51 255 / 50%);
+}
+
+.ordersTotals:first-child {
+    margin-bottom: 60px;
+}

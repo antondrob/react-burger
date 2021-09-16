@@ -57,46 +57,51 @@ export default function ProfileForm() {
         setFormData(initialFormState);
     }
     return (
-        <form onSubmit={updateUserHandler}>
-            <div className={styles.inputWrapper}>
-                <Input
-                    type={'text'}
-                    placeholder={'Имя'}
-                    onChange={profileOnChange}
-                    name={'name'}
-                    size={'default'}
-                    value={formData.name}
-                    icon={'EditIcon'}
-                />
+        <div className={styles.sidesWrapper}>
+            <div className={styles.leftSide}>
+                <form onSubmit={updateUserHandler}>
+                    <div className={styles.inputWrapper}>
+                        <Input
+                            type={'text'}
+                            placeholder={'Имя'}
+                            onChange={profileOnChange}
+                            name={'name'}
+                            size={'default'}
+                            value={formData.name}
+                            icon={'EditIcon'}
+                        />
+                    </div>
+                    <div className={styles.inputWrapper}>
+                        <Input
+                            type={'email'}
+                            placeholder={'E-mail'}
+                            onChange={profileOnChange}
+                            name={'email'}
+                            size={'default'}
+                            value={formData.email}
+                            icon={'EditIcon'}
+                        />
+                    </div>
+                    <div className={styles.inputWrapper}>
+                        <Input
+                            type={'password'}
+                            placeholder={'Пароль'}
+                            onChange={profileOnChange}
+                            name={'password'}
+                            size={'default'}
+                            value={formData.password}
+                            icon={'EditIcon'}
+                        />
+                    </div>
+                    <div className={styles.submitWrapper}>
+                        <a href="#cancel" className={styles.link} onClick={cancelChanges}>Отмена</a>
+                        <Button type="primary" size="medium">
+                            Сохранить
+                        </Button>
+                    </div>
+                </form>
             </div>
-            <div className={styles.inputWrapper}>
-                <Input
-                    type={'email'}
-                    placeholder={'E-mail'}
-                    onChange={profileOnChange}
-                    name={'email'}
-                    size={'default'}
-                    value={formData.email}
-                    icon={'EditIcon'}
-                />
-            </div>
-            <div className={styles.inputWrapper}>
-                <Input
-                    type={'password'}
-                    placeholder={'Пароль'}
-                    onChange={profileOnChange}
-                    name={'password'}
-                    size={'default'}
-                    value={formData.password}
-                    icon={'EditIcon'}
-                />
-            </div>
-            <div className={styles.submitWrapper}>
-                <a href="#cancel" className={styles.link} onClick={cancelChanges}>Отмена</a>
-                <Button type="primary" size="medium">
-                    Сохранить
-                </Button>
-            </div>
-        </form>
+            <div className={styles.rightSide}></div>
+        </div>
     )
 }

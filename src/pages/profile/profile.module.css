@@ -13,10 +13,9 @@
 }
 
 .centerBlock {
-    flex: 3;
-    align-items: center;
+    flex: 2;
 }
 
 .sidebar {
-    flex: 2;
+    flex: 1;
 }

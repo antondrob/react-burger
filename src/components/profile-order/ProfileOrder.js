@@ -1,12 +1,11 @@
-import {useParams} from "react-router-dom";
+import styles from "../profile-form/ProfileFormStyles.module.css";
+import OrderDetails from "../order-details/OrderDetails";
 
-export default function ProfileOrder(){
-    const { id } = useParams();
+export default function ProfileOrder() {
     return (
-        <>
-            <h3>ProfileOrder Component</h3>
-            <h4>Order #{id}</h4>
-            <p>To be done in the next sprint...</p>
-        </>
+        <div className={styles.sidesWrapper}>
+            <OrderDetails/>
+            <div className={styles.leftSide}></div>
+        </div>
     )
 }

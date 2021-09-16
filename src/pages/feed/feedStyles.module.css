@@ -1,6 +1,15 @@
+.content {
+    display: flex;
+    justify-content: space-between;
+    color: #F2F2F3;
+}
+
+.content > section {
+    flex: 1;
+    max-width: 600px;
+}
+
 .ordersFeed {
-    top: -90px;
-    position: relative;
     overflow-y: scroll;
 }
 
@@ -19,24 +28,24 @@
 
 @media screen and (max-height: 1000px) {
     .ordersFeed {
-        max-height: 800px;
+        max-height: 900px;
     }
 }
 
 @media screen and (max-height: 900px) {
     .ordersFeed {
-        max-height: 700px;
+        max-height: 800px;
     }
 }
 
 @media screen and (max-height: 800px) {
     .ordersFeed {
-        max-height: 600px;
+        max-height: 700px;
     }
 }
 
 @media screen and (max-height: 700px) {
     .ordersFeed {
-        max-height: 500px;
+        max-height: 600px;
     }
 }

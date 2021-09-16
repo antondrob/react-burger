@@ -15,14 +15,12 @@ function App() {
         }
     }, [dispatch, items.length]);
     return (
-        <>
-            <Router>
-                <AppHeader/>
-                <div className={AppStyles.container}>
-                    <ModalSwitch />
-                </div>
-            </Router>
-        </>
+        <Router>
+            <AppHeader/>
+            <div className={AppStyles.container}>
+                <ModalSwitch/>
+            </div>
+        </Router>
     );
 }
 
