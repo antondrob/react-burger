@@ -27,7 +27,7 @@ export const orderReducer = (state = preloadedState.order, action) => {
                 orderRailed: true
             }
         case ORDER_CLOSE:
-            return preloadedState.order
+            return preloadedState.order;
         default:
             return state;
     }
