@@ -3,7 +3,7 @@ import {useDrag, useDrop} from 'react-dnd';
 import SortableIngredientStyles from '../sortable-ingredient/SortableIngredientStyles.module.css';
 import {DragIcon, ConstructorElement} from '@ya.praktikum/react-developer-burger-ui-components';
 import {useDispatch} from "react-redux";
-import {REMOVE_FROM_BURGER} from '../../services/actions/burgerConstructor';
+import {REMOVE_FROM_BURGER} from '../../services/actions/burger';
 import PropTypes from "prop-types";
 
 const SortableIngredient = ({id, index, moveCard, name, image_mobile, price}) => {

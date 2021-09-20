@@ -50,6 +50,7 @@ export const deleteCookies = (cookies = []) => {
 }
 
 export const generateOrderItems = (ingredients, items) => {
+    // console.log(ingredients);
     let products = null;
     ingredients.forEach(el => {
         const product = items.find(item => item._id === el);
