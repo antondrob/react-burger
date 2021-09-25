@@ -1,13 +1,15 @@
-import {preloadedState} from "../preloadedState";
+import {preloadedState} from "../../preloadedState";
 
 import {
     ADD_TO_BURGER,
     REMOVE_FROM_BURGER,
     REORDER_BURGER,
     CLEAR_BURGER
-} from '../actions/burger';
+} from '../../actions/burger';
+import {TBurgerConstructorActions, TBurgerConstructorState } from "../../types/burger";
 
-export const burgerReducer = (state = preloadedState.burger, action) => {
+const initialState: TBurgerConstructorState = preloadedState.burger;
+export const burgerReducer = (state = initialState, action: TBurgerConstructorActions) => {
     switch (action.type) {
         case ADD_TO_BURGER:
             if (action.item.type === 'bun') {

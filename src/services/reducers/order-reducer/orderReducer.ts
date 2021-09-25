@@ -1,12 +1,14 @@
-import {preloadedState} from "../preloadedState";
+import {preloadedState} from "../../preloadedState";
 import {
     ORDER_CREATE_REQUEST,
     ORDER_CREATE_SUCCESS,
     ORDER_CREATE_FAIL,
     ORDER_CLOSE
-} from '../actions/order';
+} from '../../actions/order';
+import {TOrderActions, TOrderCreatedState} from "../../types/order";
 
-export const orderReducer = (state = preloadedState.order, action) => {
+const initialState: TOrderCreatedState = preloadedState.order;
+export const orderReducer = (state = initialState, action: TOrderActions) => {
     switch (action.type) {
         case ORDER_CREATE_REQUEST:
             return {

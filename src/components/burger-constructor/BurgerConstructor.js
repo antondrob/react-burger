@@ -33,7 +33,8 @@ function BurgerConstructor() {
     const moveCard = useCallback((dragIndex, hoverIndex) => {
         const dragCard = notBun[dragIndex];
         dispatch({
-            type: REORDER_BURGER, payload: update(notBun, {
+            type: REORDER_BURGER,
+            payload: update(notBun, {
                 $splice: [
                     [dragIndex, 1],
                     [hoverIndex, 0, dragCard],

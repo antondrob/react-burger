@@ -9,37 +9,46 @@ import {
     TOKEN_URL
 } from "../appVariables";
 import {checkResponse, deleteCookie, deleteCookies, getCookie, setCookie} from "../helperFunctions";
+import {Dispatch} from "react";
+import {
+    TForgotPasswordActions,
+    TResetPasswordActions, TUser, TUserGetActions,
+    TUserLoginActions,
+    TUserLogoutActions,
+    TUserRegisterActions, TUserRequestResponse, TUserUpdateActions,
+} from "../types/user";
+import {TRefreshToken} from "../types";
 
 // Login actions
-export const LOGIN_REQUEST = 'LOGIN_REQUEST';
-export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
-export const LOGIN_FAIL = 'LOGIN_FAIL';
+export const LOGIN_REQUEST: 'LOGIN_REQUEST' = 'LOGIN_REQUEST';
+export const LOGIN_SUCCESS: 'LOGIN_SUCCESS' = 'LOGIN_SUCCESS';
+export const LOGIN_FAIL: 'LOGIN_FAIL' = 'LOGIN_FAIL';
 // Logout actions
-export const LOGOUT_REQUEST = 'LOGOUT_REQUEST';
-export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
-export const LOGOUT_FAIL = 'LOGOUT_FAIL';
+export const LOGOUT_REQUEST: 'LOGOUT_REQUEST' = 'LOGOUT_REQUEST';
+export const LOGOUT_SUCCESS: 'LOGOUT_SUCCESS' = 'LOGOUT_SUCCESS';
+export const LOGOUT_FAIL: 'LOGOUT_FAIL' = 'LOGOUT_FAIL';
 // Register actions
-export const REGISTER_REQUEST = 'REGISTER_REQUEST';
-export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
-export const REGISTER_FAIL = 'REGISTER_FAIL';
+export const REGISTER_REQUEST: 'REGISTER_REQUEST' = 'REGISTER_REQUEST';
+export const REGISTER_SUCCESS: 'REGISTER_SUCCESS' = 'REGISTER_SUCCESS';
+export const REGISTER_FAIL: 'REGISTER_FAIL' = 'REGISTER_FAIL';
 // Forgot password actions
-export const FORGOT_PASSWORD_REQUEST = 'FORGOT_PASSWORD_REQUEST';
-export const FORGOT_PASSWORD_SUCCESS = 'FORGOT_PASSWORD_SUCCESS';
-export const FORGOT_PASSWORD_FAIL = 'FORGOT_PASSWORD_FAIL';
+export const FORGOT_PASSWORD_REQUEST: 'FORGOT_PASSWORD_REQUEST' = 'FORGOT_PASSWORD_REQUEST';
+export const FORGOT_PASSWORD_SUCCESS: 'FORGOT_PASSWORD_SUCCESS' = 'FORGOT_PASSWORD_SUCCESS';
+export const FORGOT_PASSWORD_FAIL: 'FORGOT_PASSWORD_FAIL' = 'FORGOT_PASSWORD_FAIL';
 // Reset password actions
-export const RESET_PASSWORD_REQUEST = 'RESET_PASSWORD_REQUEST';
-export const RESET_PASSWORD_SUCCESS = 'RESET_PASSWORD_SUCCESS';
-export const RESET_PASSWORD_FAIL = 'RESET_PASSWORD_FAIL';
+export const RESET_PASSWORD_REQUEST: 'RESET_PASSWORD_REQUEST' = 'RESET_PASSWORD_REQUEST';
+export const RESET_PASSWORD_SUCCESS: 'RESET_PASSWORD_SUCCESS' = 'RESET_PASSWORD_SUCCESS';
+export const RESET_PASSWORD_FAIL: 'RESET_PASSWORD_FAIL' = 'RESET_PASSWORD_FAIL';
 // Get user actions
-export const GET_USER_REQUEST = 'GET_USER_REQUEST';
-export const GET_USER_SUCCESS = 'GET_USER_SUCCESS';
-export const GET_USER_FAIL = 'GET_USER_FAIL';
+export const GET_USER_REQUEST: 'GET_USER_REQUEST' = 'GET_USER_REQUEST';
+export const GET_USER_SUCCESS: 'GET_USER_SUCCESS' = 'GET_USER_SUCCESS';
+export const GET_USER_FAIL: 'GET_USER_FAIL' = 'GET_USER_FAIL';
 // Update user actions
-export const UPDATE_USER_REQUEST = 'UPDATE_USER_REQUEST';
-export const UPDATE_USER_SUCCESS = 'UPDATE_USER_SUCCESS';
-export const UPDATE_USER_FAIL = 'UPDATE_USER_FAIL';
+export const UPDATE_USER_REQUEST: 'UPDATE_USER_REQUEST' = 'UPDATE_USER_REQUEST';
+export const UPDATE_USER_SUCCESS: 'UPDATE_USER_SUCCESS' = 'UPDATE_USER_SUCCESS';
+export const UPDATE_USER_FAIL: 'UPDATE_USER_FAIL' = 'UPDATE_USER_FAIL';
 
-export const refreshToken = (afterRefresh, call = false) => async (dispatch) => {
+export const refreshToken: TRefreshToken = (afterRefresh) => async (dispatch: Dispatch<typeof afterRefresh>) => {
     return await fetch(TOKEN_URL, {
         method: 'POST',
         headers: {
@@ -62,7 +71,7 @@ export const refreshToken = (afterRefresh, call = false) => async (dispatch) => 
         });
 }
 
-export const login = (email, password) => (dispatch) => {
+export const login = (email: string, password: string) => (dispatch: Dispatch<TUserLoginActions>) => {
     dispatch({
         type: LOGIN_REQUEST
     });
@@ -97,7 +106,7 @@ export const login = (email, password) => (dispatch) => {
         });
 }
 
-export const logout = () => (dispatch) => {
+export const logout = () => (dispatch: Dispatch<TUserLogoutActions>) => {
     dispatch({
         type: LOGOUT_REQUEST
     });
@@ -130,7 +139,7 @@ export const logout = () => (dispatch) => {
         });
 }
 
-export const register = (email, password, name) => (dispatch) => {
+export const register = (email: string, password: string, name: string) => (dispatch: Dispatch<TUserRegisterActions>) => {
     dispatch({
         type: REGISTER_REQUEST
     });
@@ -164,7 +173,7 @@ export const register = (email, password, name) => (dispatch) => {
         });
 }
 
-export const forgotPassword = (email) => (dispatch) => {
+export const forgotPassword = (email: string) => (dispatch: Dispatch<TForgotPasswordActions>) => {
     dispatch({
         type: FORGOT_PASSWORD_REQUEST
     });
@@ -192,7 +201,7 @@ export const forgotPassword = (email) => (dispatch) => {
         });
 }
 
-export const resetPassword = (password, token) => (dispatch) => {
+export const resetPassword = (password: string, token: string) => (dispatch: Dispatch<TResetPasswordActions>) => {
     dispatch({
         type: RESET_PASSWORD_REQUEST
     });
@@ -220,7 +229,7 @@ export const resetPassword = (password, token) => (dispatch) => {
         });
 }
 
-export const getUser = (password) => (dispatch) => {
+export const getUser = (password: string) => (dispatch: Dispatch<TUserGetActions | void>) => {
     dispatch({
         type: GET_USER_REQUEST
     });
@@ -231,7 +240,7 @@ export const getUser = (password) => (dispatch) => {
             'Authorization': getCookie('accessToken')
         }
     })
-        .then(checkResponse)
+        .then<TUserRequestResponse>(checkResponse)
         .then(res => {
             if (res.success) {
                 dispatch({
@@ -243,12 +252,12 @@ export const getUser = (password) => (dispatch) => {
                 });
                 return true;
             } else {
-                throw new Error(res.message);
+                throw new Error(res.statusText);
             }
         })
         .catch(error => {
             if (error.message === 'jwt expired' || error.message === 'invalid signature') {
-                dispatch(refreshToken(getUser()));
+                dispatch(refreshToken(getUser(password)));
             } else {
                 dispatch({
                     type: GET_USER_FAIL
@@ -259,7 +268,7 @@ export const getUser = (password) => (dispatch) => {
         });
 }
 
-export const updateUser = (data) => (dispatch) => {
+export const updateUser = (data: TUser) => (dispatch: Dispatch<TUserUpdateActions | void>) => {
     dispatch({
         type: UPDATE_USER_REQUEST
     });
@@ -271,7 +280,7 @@ export const updateUser = (data) => (dispatch) => {
         },
         body: JSON.stringify(data)
     })
-        .then(checkResponse)
+        .then<TUserRequestResponse>(checkResponse)
         .then(res => {
             if (res.success) {
                 dispatch({
@@ -283,7 +292,7 @@ export const updateUser = (data) => (dispatch) => {
                 });
                 return true;
             } else {
-                throw new Error(res.message);
+                throw new Error(res.statusText);
             }
         })
         .catch(error => {

@@ -1,31 +1,31 @@
-export const checkResponse = (res) => {
+import {TIngredient} from "./types";
+
+export const checkResponse = (res: Response) => {
     return res.ok ? res.json() : res.json().then((err) => Promise.reject(err));
 }
 
-export const setCookie = (name, value, options = {}) => {
+type TSetCookie = {
+    [name: string]: string | number
+};
+export const setCookie = (name: string, value: string, options: TSetCookie) => {
     options = {
         path: '/',
         ...options
     };
-    if (options.expires instanceof Date) {
-        options.expires = options.expires.toUTCString();
-    }
     let updatedCookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
     for (let optionKey in options) {
         updatedCookie += "; " + optionKey;
         let optionValue = options[optionKey];
-        if (optionValue !== true) {
-            updatedCookie += "=" + optionValue;
-        }
+        updatedCookie += "=" + optionValue;
     }
     document.cookie = updatedCookie;
 }
 
-export const getCookie = (cname) => {
+export const getCookie = (cname: string) => {
     let name = cname + "=";
     let decodedCookie = decodeURIComponent(document.cookie);
     let ca = decodedCookie.split(';');
-    for(let i = 0; i <ca.length; i++) {
+    for (let i = 0; i < ca.length; i++) {
         let c = ca[i];
         while (c.charAt(0) === ' ') {
             c = c.substring(1);
@@ -37,24 +37,44 @@ export const getCookie = (cname) => {
     return "";
 }
 
-export const deleteCookie = (name) => {
+export const deleteCookie = (name: string) => {
     setCookie(name, "", {
         'max-age': -1
     })
 }
 
-export const deleteCookies = (cookies = []) => {
+export const deleteCookies = (cookies: string[] = []) => {
     cookies.forEach(el => {
         deleteCookie(el);
     })
 }
-
-export const generateOrderItems = (ingredients, items) => {
-    // console.log(ingredients);
-    let products = null;
+type TProduct = {
+    name: string;
+    image_mobile: string;
+    price: number;
+};
+type TOrderItem = {
+    [key: string]: {
+        amount: number,
+        name: string,
+        image: string,
+        price: number,
+        id: string
+    }
+};
+type TOrderData = {
+    metaData: TOrderItem,
+    keys: Array<string>,
+    orderTotal: number
+};
+export const generateOrderItems = (ingredients: string[], items: TIngredient[]) => {
+    let products: (TOrderData | null) = null;
     ingredients.forEach(el => {
-        const product = items.find(item => item._id === el);
-        if (products === null) {
+        const product: (TProduct | undefined) = items.find(item => item._id === el);
+        if (typeof product === 'undefined') {
+            return false;
+        }
+        if (products === null && typeof product !== undefined) {
             products = {
                 metaData: {
                     [el]: {
@@ -68,7 +88,7 @@ export const generateOrderItems = (ingredients, items) => {
                 keys: [el],
                 orderTotal: product.price
             }
-        } else if (!(el in products.metaData)) {
+        } else if (products !== null && !(el in products.metaData)) {
             products.metaData[el] = {
                 amount: 1,
                 name: product.name,
@@ -78,7 +98,7 @@ export const generateOrderItems = (ingredients, items) => {
             }
             products['keys'].push(el);
             products['orderTotal'] += product.price;
-        } else if (el in products.metaData) {
+        } else if (products !== null && el in products.metaData) {
             products.metaData[el].amount += 1;
             products['orderTotal'] += product.price;
         }

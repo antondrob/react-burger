@@ -1,7 +1,7 @@
 import {ingredientsReducer} from './ingredientsReducer';
-import {preloadedState} from '../preloadedState';
-import * as actions from '../actions/ingredients';
-import {GET_INGREDIENTS_REQUEST} from "../actions/ingredients";
+import {preloadedState} from '../../preloadedState';
+import * as actions from '../../actions/ingredients';
+import {GET_INGREDIENTS_REQUEST} from "../../actions/ingredients";
 
 describe('Ingredients Reducer', () => {
     it('should return the initial state', () => {

@@ -1,16 +1,18 @@
 import {API_URL} from '../appVariables';
 import {checkResponse} from "../helperFunctions";
+import {Dispatch} from "react";
+import {TGetIngredientsActions, TGetIngredientsResponse} from '../types/ingredients';
 
-export const GET_INGREDIENTS_REQUEST = 'GET_INGREDIENTS_REQUEST';
-export const GET_INGREDIENTS_SUCCESS = 'GET_INGREDIENTS_SUCCESS';
-export const GET_INGREDIENTS_FAIL = 'GET_INGREDIENTS_FAIL';
+export const GET_INGREDIENTS_REQUEST: 'GET_INGREDIENTS_REQUEST' = 'GET_INGREDIENTS_REQUEST';
+export const GET_INGREDIENTS_SUCCESS: 'GET_INGREDIENTS_SUCCESS' = 'GET_INGREDIENTS_SUCCESS';
+export const GET_INGREDIENTS_FAIL: 'GET_INGREDIENTS_FAIL' = 'GET_INGREDIENTS_FAIL';
 
-export const getIngredients = () => (dispatch) => {
+export const getIngredients = () => (dispatch: Dispatch<TGetIngredientsActions>) => {
     dispatch({
         type: GET_INGREDIENTS_REQUEST
     });
     return fetch(API_URL)
-        .then(checkResponse)
+        .then<TGetIngredientsResponse>(checkResponse)
         .then(data => {
             if (data.success) {
                 dispatch({

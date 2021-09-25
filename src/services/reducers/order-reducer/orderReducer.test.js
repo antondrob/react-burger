@@ -1,6 +1,6 @@
 import {orderReducer} from './orderReducer';
-import {preloadedState} from '../preloadedState';
-import * as actions from '../actions/order';
+import {preloadedState} from '../../preloadedState';
+import * as actions from '../../actions/order';
 
 describe('Order Reducer', () => {
     it('should return the initial state', () => {

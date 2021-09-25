@@ -6,10 +6,13 @@ import {
     WS_CONNECTION_START,
     WS_CONNECTION_SUCCESS, WS_GET_ORDERS
 } from "../actions/websocket";
+import {WSActions} from "../types/ws";
+import {Middleware} from "redux";
+import {TRootStore} from "../store";
 
-export const socketMiddleware = (store) => {
-    let socket = null;
-    return next => action => {
+export const socketMiddleware: Middleware<{}, TRootStore> = (store) => {
+    let socket: WebSocket | null = null;
+    return next => (action: WSActions) => {
         const {dispatch} = store;
         const {type, payload} = action;
 

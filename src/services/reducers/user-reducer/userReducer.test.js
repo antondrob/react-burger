@@ -1,5 +1,5 @@
-import * as actions from '../actions/user';
-import {preloadedState} from "../preloadedState";
+import * as actions from '../../actions/user';
+import {preloadedState} from "../../preloadedState";
 import {userReducer} from "./userReducer";
 
 describe('User Reducer', () => {

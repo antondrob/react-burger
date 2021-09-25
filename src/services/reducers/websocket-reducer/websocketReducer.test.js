@@ -1,5 +1,5 @@
-import * as actions from '../actions/websocket';
-import {preloadedState} from "../preloadedState";
+import * as actions from '../../actions/websocket';
+import {preloadedState} from "../../preloadedState";
 import {websocketReducer} from "./websocketReducer";
 
 describe('WebSocket Reducer', () => {

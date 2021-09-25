@@ -1,4 +1,4 @@
-import {preloadedState} from "../preloadedState";
+import {preloadedState} from "../../preloadedState";
 import {
     LOGIN_REQUEST,
     LOGIN_SUCCESS,
@@ -21,9 +21,11 @@ import {
     UPDATE_USER_REQUEST,
     UPDATE_USER_SUCCESS,
     UPDATE_USER_FAIL
-} from '../actions/user';
+} from '../../actions/user';
+import {TUserActions, TUserState} from "../../types/user";
 
-export const userReducer = (state = preloadedState.user, action) => {
+const initialState: TUserState = preloadedState.user;
+export const userReducer = (state = initialState, action: TUserActions) => {
     switch (action.type) {
         case LOGIN_REQUEST: {
             return {
@@ -38,8 +40,6 @@ export const userReducer = (state = preloadedState.user, action) => {
             return {
                 ...state,
                 data: action.user,
-                refreshToken: action.refreshToken,
-                accessToken: action.accessToken,
                 login: {
                     request: false,
                     failed: false
@@ -89,8 +89,6 @@ export const userReducer = (state = preloadedState.user, action) => {
             return {
                 ...state,
                 data: action.user,
-                refreshToken: action.refreshToken,
-                accessToken: action.accessToken,
                 register: {
                     request: false,
                     failed: false
@@ -173,8 +171,6 @@ export const userReducer = (state = preloadedState.user, action) => {
             return {
                 ...state,
                 data: action.user,
-                refreshToken: action.refreshToken,
-                accessToken: action.accessToken,
                 getUserRequest: {
                     request: false,
                     failed: false

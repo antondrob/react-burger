@@ -1,7 +1,7 @@
-import * as actions from '../actions/burger';
+import * as actions from '../../actions/burger';
 import {burgerReducer} from "./burgerReducer";
-import {preloadedState} from '../preloadedState';
-import {orderReducer} from "./orderReducer";
+import {preloadedState} from '../../preloadedState';
+import {orderReducer} from "../order-reducer/orderReducer";
 import {v4 as uuidv4} from "uuid";
 
 describe('Burger Constructor Reducer', () => {
