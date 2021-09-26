@@ -2,20 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5016bf85-4fb3-46cf-bc8d-af0780ef0ddc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/orders-stat/OrdersStat.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/orders-stat/OrdersStatStyles.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/react-burger.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/react-burger.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cypress/.eslintrc.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cypress/integration/burger-constructor/drag-and-drop.spec.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cypress/integration/burger-constructor/is-available.spec.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cypress/integration/orders-feed/is-available.spec.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/app/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/modal-switch/ModalSwitch.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal-switch/ModalSwitch.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/order-details/OrderDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/order-details/OrderDetails.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/orders-feed/OrdersFeed.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/orders-feed/OrdersFeed.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hocs/protected-route/ProtectedRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/hocs/protected-route/ProtectedRoute.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/feed/feed.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/feed/feed.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/feed/feedStyles.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/feed/feedStyles.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/middlewares/websocetMiddleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/middlewares/websocetMiddleware.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/reducers/websocketReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/reducers/websocketReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,15 +37,96 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Git/GitHub" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/cypress/integration/orders-feed" />
+    <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/node_modules/react-scripts" />
     <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
     <property name="ts.external.directory.path" value="C:\Users\acer\Desktop\Work\React.js\react-burger\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\acer\Desktop\Work\React.js\react-burger\cypress\integration\orders-feed" />
+      <recent name="C:\Users\acer\Desktop\Work\Bucket" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\acer\Desktop\Work\React.js\react-burger" />
     </key>
+  </component>
+  <component name="RunManager" selected="Jest.User Reducer.should handle GET_USER_FAIL action">
+    <configuration name="App.test.tsx" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST_FILE" />
+      <test-file value="$PROJECT_DIR$/src/components/app/App.test.tsx" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Ingredients Reducer" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/src/services/reducers/ingredientsReducer.test.js" />
+      <test-names>
+        <test-name value="Ingredients Reducer" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="Order Reducer" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/src/services/reducers/orderReducer.test.js" />
+      <test-names>
+        <test-name value="Order Reducer" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="Order Reducer.should handle ORDER_CREATE_FAIL action" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/services/reducers/orderReducer.test.js" />
+      <test-names>
+        <test-name value="Order Reducer" />
+        <test-name value="should handle ORDER_CREATE_FAIL action" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="User Reducer.should handle GET_USER_FAIL action" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/services/reducers/userReducer.test.js" />
+      <test-names>
+        <test-name value="User Reducer" />
+        <test-name value="should handle GET_USER_FAIL action" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Jest.User Reducer.should handle GET_USER_FAIL action" />
+        <item itemvalue="Jest.App.test.tsx" />
+        <item itemvalue="Jest.Ingredients Reducer" />
+        <item itemvalue="Jest.Order Reducer" />
+        <item itemvalue="Jest.Order Reducer.should handle ORDER_CREATE_FAIL action" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -62,7 +137,9 @@
       <option name="presentableId" value="Default" />
       <updated>1631460576684</updated>
       <workItem from="1631460578251" duration="57546000" />
-      <workItem from="1631650419763" duration="34369000" />
+      <workItem from="1631650419763" duration="35040000" />
+      <workItem from="1631762857171" duration="56119000" />
+      <workItem from="1632108753566" duration="27063000" />
     </task>
     <servers />
   </component>
@@ -80,5 +157,8 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/react_burger$Ingredients_Reducer.info" NAME="Ingredients Reducer Coverage Results" MODIFIED="1632061473600" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="JestJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

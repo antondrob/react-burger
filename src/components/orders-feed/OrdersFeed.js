@@ -17,7 +17,7 @@ const OrdersFeed = () => {
         orders && items ?
         <ul className={styles.ordersList}>
             {orders && orders.map(order => {
-                if (order.ingredients.length < 1) {
+                if (order.ingredients.length < 1 || order.ingredients.some(el => el === null)) {
                     return null;
                 }
                 const orderItems = generateOrderItems(order.ingredients, items);
@@ -34,11 +34,14 @@ const OrdersFeed = () => {
                                 <p className={`text text_type_main-default ${styles.orderStatus} ${styles[order.status]}`}>{ORDER_STATUSES[order.status]}</p>
                             </div>}
                             <div className={`text text_type_main-medium ${styles.orderTitle}`}>
-                                <h3>{order.name}</h3>
+                                <h3>{order.name ?? ''}</h3>
                             </div>
                             <div className={styles.orderBottom}>
                                 <div className={styles.orderItems}>
                                     {orderItems.keys.map(orderItem => {
+                                        if (!orderItem) {
+                                            return null;
+                                        }
                                         const product = orderItems.metaData[orderItem];
                                         return (
                                             <div key={order._id + product.id} className={styles.orderItem}>

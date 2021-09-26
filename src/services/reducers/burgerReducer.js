@@ -5,7 +5,7 @@ import {
     REMOVE_FROM_BURGER,
     REORDER_BURGER,
     CLEAR_BURGER
-} from '../actions/burgerConstructor';
+} from '../actions/burger';
 
 export const burgerReducer = (state = preloadedState.burger, action) => {
     switch (action.type) {

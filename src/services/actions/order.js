@@ -1,5 +1,5 @@
 import {ORDER_URL} from '../appVariables';
-import {CLEAR_BURGER} from './burgerConstructor';
+import {CLEAR_BURGER} from './burger';
 import {checkResponse, deleteCookies, getCookie} from "../helperFunctions";
 import {refreshToken} from "./user";
 

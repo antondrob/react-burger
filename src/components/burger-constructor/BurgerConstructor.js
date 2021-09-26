@@ -6,7 +6,7 @@ import {
 } from '@ya.praktikum/react-developer-burger-ui-components';
 import BurgerConstructorStyles from './BurgerConstructorStyles.module.css';
 import {useSelector, useDispatch} from "react-redux";
-import {ADD_TO_BURGER, REORDER_BURGER} from "../../services/actions/burgerConstructor";
+import {ADD_TO_BURGER, REORDER_BURGER} from "../../services/actions/burger";
 import {useDrop} from "react-dnd";
 import update from 'immutability-helper';
 import SortableIngredient from '../sortable-ingredient/SortableIngredient';
