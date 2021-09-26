@@ -10,13 +10,14 @@ import {ORDER_STATUSES} from "../../services/appVariables";
 import {useSelector} from "react-redux";
 import Loading from "../loading/Loading";
 import {NotFoundPage} from "../../pages";
+import {TOrderCreate, TOrderData, TPreloadedState} from "../../services/types";
 
 const OrderDetails = () => {
-    const {id} = useParams();
-    const {items} = useSelector(store => store.ingredients);
-    const [order, setOrder] = useState(null);
-    const [orderItems, setOrderItems] = useState(null);
-    const [error, setError] = useState(null);
+    const {id} = useParams<{ id?: string }>();
+    const {items} = useSelector((store: TPreloadedState) => store.ingredients);
+    const [order, setOrder] = useState<TOrderCreate | null>(null);
+    const [orderItems, setOrderItems] = useState<TOrderData | null>(null);
+    const [error, setError] = useState<string | null>(null);
     useEffect(() => {
         if (!order) {
             fetch(`${ORDER_URL}/${id}`)
@@ -45,7 +46,7 @@ const OrderDetails = () => {
             <p className={styles.orderId}>#{id}</p>
             {order && orderItems ? <>
                     <h3 className={`text text_type_main-medium ${styles.itemName}`}>{order.name}</h3>
-                    <p className={`text text_type_main-default ${styles.orderStatus}`}>{ORDER_STATUSES[order.status]}</p>
+                    <p className={`text text_type_main-default ${styles.orderStatus}`}>{ORDER_STATUSES[order.status as keyof typeof ORDER_STATUSES]}</p>
                     <p className={`text text_type_main-medium ${styles.orderСomposition}`}>Состав:</p>
                     <ul className={styles.orderItems}>
                         {orderItems.keys.map(orderItem => {
@@ -60,7 +61,7 @@ const OrderDetails = () => {
                                     </div>
                                     <p className={styles.orderTotal}>
                                         <span className={styles.orderCost}>{product.amount} x {product.price}</span>
-                                        <CurrencyIcon/>
+                                        <CurrencyIcon type="primary"/>
                                     </p>
                                 </li>
                             )
@@ -71,7 +72,7 @@ const OrderDetails = () => {
                         className="text text_type_main-default text_color_inactive">{moment(order.createdAt).locale('ru').calendar()}</span>
                         <p className={styles.orderTotal}>
                             <span className={styles.orderCost}>{orderItems.orderTotal}</span>
-                            <CurrencyIcon/>
+                            <CurrencyIcon type="primary"/>
                         </p>
                     </div>
                 </> : error ? <NotFoundPage/> :

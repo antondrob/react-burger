@@ -3,9 +3,10 @@ import {useSelector} from "react-redux";
 import {Tab} from '@ya.praktikum/react-developer-burger-ui-components';
 import BurgerIngredientsStyles from './BurgerIngredientsStyles.module.css';
 import BurgerIngredient from "../burger-ingredient/BurgerIngredient";
+import {TPreloadedState} from "../../services/types";
 
 function BurgerIngredients() {
-    const {items} = useSelector(store => store.ingredients);
+    const {items} = useSelector((store: TPreloadedState) => store.ingredients);
     const [tabs, setTabs] = useState([
         {
             id: 'bun',
@@ -24,10 +25,10 @@ function BurgerIngredients() {
         }
     ]);
 
-    const scrollDiv = useRef(null),
-        bunHeader = useRef(null),
-        mainHeader = useRef(null),
-        sauceHeader = useRef(null);
+    const scrollDiv = useRef<HTMLDivElement>(null),
+        bunHeader = useRef<HTMLDivElement>(null),
+        mainHeader = useRef<HTMLDivElement>(null),
+        sauceHeader = useRef<HTMLDivElement>(null);
 
     const switchTab = useCallback((tab) => {
         setTabs([
@@ -49,30 +50,35 @@ function BurgerIngredients() {
 
     useEffect(() => {
         const ingredientBlock = scrollDiv.current;
-        const scrollHandler = (event) => {
-            const scrollBlock = event.target.scrollTop + scrollDiv.current.offsetTop;
-            if (scrollBlock - mainHeader.current.offsetTop > 0) {
+        const scrollHandler: any = (event: React.UIEvent<HTMLDivElement>) => {
+            let scrollBlock = event.currentTarget.scrollTop;
+            if (scrollDiv?.current?.offsetTop) {
+                scrollBlock += scrollDiv.current.offsetTop;
+            }
+            if (mainHeader?.current?.offsetTop && scrollBlock - mainHeader.current.offsetTop > 0) {
                 switchTab('main');
-            } else if (scrollBlock - sauceHeader.current.offsetTop > 0) {
+            } else if (sauceHeader?.current?.offsetTop && scrollBlock - sauceHeader.current.offsetTop > 0) {
                 switchTab('sauce');
             } else {
                 switchTab('bun');
             }
         }
-        ingredientBlock.addEventListener('scroll', scrollHandler);
+        ingredientBlock?.addEventListener('scroll', scrollHandler);
         return () => {
-            ingredientBlock.removeEventListener('scroll', scrollHandler);
+            ingredientBlock?.removeEventListener('scroll', scrollHandler);
         }
     }, [switchTab]);
 
     const scrollIngredients = useCallback((tab) => {
-        const bunHeaderoffsetTop = bunHeader.current.offsetTop - 10;
-        if (tab.id === 'bun') {
-            scrollDiv.current.scrollTo(0, 0);
-        } else if (tab.id === 'sauce') {
-            scrollDiv.current.scrollTo(0, sauceHeader.current.offsetTop - bunHeaderoffsetTop);
-        } else {
-            scrollDiv.current.scrollTo(0, mainHeader.current.offsetTop - bunHeaderoffsetTop);
+        if (bunHeader?.current?.offsetTop) {
+            const bunHeaderoffsetTop = bunHeader?.current?.offsetTop - 10;
+            if (tab.id === 'bun') {
+                scrollDiv?.current?.scrollTo(0, 0);
+            } else if (tab.id === 'sauce' && sauceHeader?.current?.offsetTop) {
+                scrollDiv?.current?.scrollTo(0, sauceHeader.current.offsetTop - bunHeaderoffsetTop);
+            } else if(mainHeader?.current?.offsetTop) {
+                scrollDiv?.current?.scrollTo(0, mainHeader?.current?.offsetTop - bunHeaderoffsetTop);
+            }
         }
     }, []);
 

@@ -4,10 +4,10 @@ import SortableIngredientStyles from '../sortable-ingredient/SortableIngredientS
 import {DragIcon, ConstructorElement} from '@ya.praktikum/react-developer-burger-ui-components';
 import {useDispatch} from "react-redux";
 import {REMOVE_FROM_BURGER} from '../../services/actions/burger';
-import PropTypes from "prop-types";
+import {TSortableIngredientProps} from "../../services/types";
 
-const SortableIngredient = ({id, index, moveCard, name, image_mobile, price}) => {
-    const ref = useRef(null);
+const SortableIngredient = ({id, index, moveCard, name, image_mobile, price}: TSortableIngredientProps) => {
+    const ref = useRef<HTMLDivElement | null>(null);
     const dispatch = useDispatch();
     const [{handlerId}, drop] = useDrop({
         accept: 'helloWorld',
@@ -16,7 +16,7 @@ const SortableIngredient = ({id, index, moveCard, name, image_mobile, price}) =>
                 handlerId: monitor.getHandlerId(),
             };
         },
-        hover(item, monitor) {
+        hover(item:{id: string, index: number}, monitor) {
             if (!ref.current) {
                 return;
             }
@@ -28,7 +28,10 @@ const SortableIngredient = ({id, index, moveCard, name, image_mobile, price}) =>
             const hoverBoundingRect = ref.current?.getBoundingClientRect();
             const hoverMiddleY = (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2;
             const clientOffset = monitor.getClientOffset();
-            const hoverClientY = clientOffset.y - hoverBoundingRect.top;
+            let hoverClientY = hoverBoundingRect.top;
+            if (clientOffset) {
+                hoverClientY = clientOffset.y - hoverBoundingRect.top;
+            }
             if (dragIndex < hoverIndex && hoverClientY < hoverMiddleY) {
                 return;
             }
@@ -53,7 +56,7 @@ const SortableIngredient = ({id, index, moveCard, name, image_mobile, price}) =>
     return (
         <div ref={ref} style={{opacity}} data-handler-id={handlerId}
              className={SortableIngredientStyles.chosenItem}>
-            <DragIcon/>
+            <DragIcon type="primary"/>
             <ConstructorElement
                 text={name}
                 price={price}
@@ -67,15 +70,6 @@ const SortableIngredient = ({id, index, moveCard, name, image_mobile, price}) =>
             />
         </div>
     );
-};
-
-SortableIngredient.propTypes = {
-    index: PropTypes.number.isRequired,
-    id: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    image_mobile: PropTypes.string.isRequired,
-    moveCard: PropTypes.func.isRequired
 };
 
 export default SortableIngredient;

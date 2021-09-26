@@ -17,12 +17,13 @@ import {
 import ProtectedRoute from "../../hocs/protected-route/ProtectedRoute";
 import React from "react";
 import {useSelector} from "react-redux";
+import {TLocation, TPreloadedState} from "../../services/types";
 
 export default function ModalSwitch() {
-    const location = useLocation();
+    const location = useLocation<TLocation>();
     const history = useHistory();
-    const {data: order} = useSelector(store => store.order);
-    const background = (history.action === 'PUSH' || history.action === 'REPLACE') && location.state && location.state.background;
+    const {data: order} = useSelector((store: TPreloadedState) => store.order);
+    const background = (history.action === 'PUSH' || history.action === 'REPLACE') && location?.state && location.state.background;
 
     return (
         <>

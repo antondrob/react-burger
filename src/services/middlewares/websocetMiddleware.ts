@@ -4,7 +4,8 @@ import {
     WS_CONNECTION_ERROR,
     WS_CONNECTION_FINISH,
     WS_CONNECTION_START,
-    WS_CONNECTION_SUCCESS, WS_GET_ORDERS
+    WS_CONNECTION_SUCCESS,
+    WS_GET_ORDERS
 } from "../actions/websocket";
 import {WSActions} from "../types/ws";
 import {Middleware} from "redux";
@@ -14,11 +15,10 @@ export const socketMiddleware: Middleware<{}, TRootStore> = (store) => {
     let socket: WebSocket | null = null;
     return next => (action: WSActions) => {
         const {dispatch} = store;
-        const {type, payload} = action;
 
-        if (type === WS_CONNECTION_START) {
+        if (action.type === WS_CONNECTION_START) {
             const token = getCookie('accessToken').replace('Bearer ', '');
-            socket = new WebSocket(payload.secure ? `${payload.url}?token=${token}` : payload.url);
+            socket = new WebSocket(action.payload.secure ? `${action.payload.url}?token=${token}` : action.payload.url);
         }
         if (socket) {
             socket.onopen = event => {
@@ -31,14 +31,15 @@ export const socketMiddleware: Middleware<{}, TRootStore> = (store) => {
                 const {data} = event;
                 const parsedData = JSON.parse(data);
                 dispatch({
-                    type: WS_GET_ORDERS, payload: parsedData
+                    type: WS_GET_ORDERS,
+                    payload: parsedData
                 });
             }
             socket.onclose = event => {
                 dispatch({type: WS_CONNECTION_CLOSED, payload: event});
             }
-            if (type === WS_CONNECTION_FINISH) {
-                socket.close(payload);
+            if (action.type === WS_CONNECTION_FINISH) {
+                socket.close(action.payload);
             }
         }
         next(action);

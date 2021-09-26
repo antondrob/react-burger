@@ -1,9 +1,10 @@
 import {useSelector} from "react-redux";
 import styles from "./OrdersStatStyles.module.css";
 import {TABLE_ORDERS_LIMIT} from '../../services/appVariables';
+import {TPreloadedState} from "../../services/types";
 
 export default function OrdersStat() {
-    const {orders, total, totalToday} = useSelector(store => store.websocket);
+    const {orders, total, totalToday} = useSelector((store: TPreloadedState) => store.websocket);
     return (
         orders && <>
             <div className={styles.ordersTable}>

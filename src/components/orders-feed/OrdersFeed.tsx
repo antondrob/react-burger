@@ -7,12 +7,13 @@ import 'moment/locale/ru';
 import {ORDER_STATUSES} from "../../services/appVariables";
 import {generateOrderItems} from '../../services/helperFunctions';
 import Loading from "../loading/Loading";
+import {TPreloadedState} from "../../services/types";
 
 const OrdersFeed = () => {
     const location = useLocation();
     const {path} = useRouteMatch();
-    const {orders, wsConnected, error} = useSelector(store => store.websocket);
-    const {items, ingredientsRequest, ingredientsFailed} = useSelector(store => store.ingredients);
+    const {orders, wsConnected, error} = useSelector((store: TPreloadedState) => store.websocket);
+    const {items, ingredientsRequest, ingredientsFailed} = useSelector((store: TPreloadedState) => store.ingredients);
     return (
         orders && items ?
         <ul className={styles.ordersList}>
@@ -31,14 +32,14 @@ const OrdersFeed = () => {
                                     className="text text_type_main-default text_color_inactive">{moment(order.createdAt).locale('ru').calendar()} i-GMT+3</span>
                             </div>
                             {path === '/profile/orders' && <div>
-                                <p className={`text text_type_main-default ${styles.orderStatus} ${styles[order.status]}`}>{ORDER_STATUSES[order.status]}</p>
+                                <p className={`text text_type_main-default ${styles.orderStatus} ${styles[order.status]}`}>{ORDER_STATUSES[order.status as keyof typeof ORDER_STATUSES]}</p>
                             </div>}
                             <div className={`text text_type_main-medium ${styles.orderTitle}`}>
                                 <h3>{order.name ?? ''}</h3>
                             </div>
                             <div className={styles.orderBottom}>
                                 <div className={styles.orderItems}>
-                                    {orderItems.keys.map(orderItem => {
+                                    {orderItems && orderItems.keys.map(orderItem => {
                                         if (!orderItem) {
                                             return null;
                                         }
@@ -53,7 +54,7 @@ const OrdersFeed = () => {
                                     })}
                                 </div>
                                 <div className={styles.orderTotal}><span
-                                    className={styles.orderCost}>{orderItems.orderTotal}</span> <CurrencyIcon/></div>
+                                    className={styles.orderCost}>{orderItems?.orderTotal}</span> <CurrencyIcon type="primary"/></div>
                             </div>
                         </Link>
                     </li>

@@ -4,6 +4,55 @@ import {preloadedState} from '../../preloadedState';
 import {orderReducer} from "../order-reducer/orderReducer";
 import {v4 as uuidv4} from "uuid";
 
+const testBun = {
+    _id: '60d3b41abdacab0026a733c7',
+    name: 'Флюоресцентная булка R2-D3',
+    type: 'bun',
+    proteins: 44,
+    fat: 26,
+    carbohydrates: 85,
+    calories: 643,
+    price: 988,
+    image: 'https://code.s3.yandex.net/react/code/bun-01.png',
+    image_mobile: 'https://code.s3.yandex.net/react/code/bun-01-mobile.png',
+    image_large: 'https://code.s3.yandex.net/react/code/bun-01-large.png',
+    uniqueId: 'some-random-id',
+    qty: 1,
+    __v: 0
+};
+const testBun2 = {
+    _id: '60d3b41abdacab0026a733cb',
+    name: 'Биокотлета из марсианской Магнолии',
+    type: 'main',
+    proteins: 420,
+    fat: 142,
+    carbohydrates: 242,
+    calories: 4242,
+    price: 424,
+    image: 'https://code.s3.yandex.net/react/code/meat-01.png',
+    image_mobile: 'https://code.s3.yandex.net/react/code/meat-01-mobile.png',
+    image_large: 'https://code.s3.yandex.net/react/code/meat-01-large.png',
+    __v: 0,
+    uniqueId: 'some-random-id2',
+    qty: 2,
+};
+const testNotBun = {
+    _id: '60d3b41abdacab0026a733cd',
+    name: 'Соус фирменный Space Sauce',
+    type: 'sauce',
+    proteins: 50,
+    fat: 22,
+    carbohydrates: 11,
+    calories: 14,
+    price: 80,
+    image: 'https://code.s3.yandex.net/react/code/sauce-04.png',
+    image_mobile: 'https://code.s3.yandex.net/react/code/sauce-04-mobile.png',
+    image_large: 'https://code.s3.yandex.net/react/code/sauce-04-large.png',
+    __v: 0,
+    qty: 2,
+    uniqueId: 'some-random-id'
+};
+
 describe('Burger Constructor Reducer', () => {
     it('should return the initial state', () => {
         expect(burgerReducer(undefined, {})).toEqual(preloadedState.burger)
@@ -11,15 +60,11 @@ describe('Burger Constructor Reducer', () => {
     it('should handle ADD_TO_BURGER action for buns', () => {
         const expected = {
             ...preloadedState.burger,
-            bun: {
-                type: 'bun'
-            }
+            bun: testBun
         };
         const received = burgerReducer(preloadedState.burger, {
             type: actions.ADD_TO_BURGER,
-            item: {
-                type: 'bun'
-            },
+            item: testBun,
             uniqueId: 'some-random-id'
         });
         expect(received).toEqual(expected);
@@ -27,16 +72,11 @@ describe('Burger Constructor Reducer', () => {
     it('should handle ADD_TO_BURGER action for not buns', () => {
         const expected = {
             ...preloadedState.burger,
-            notBun: [{
-                type: 'notBun',
-                uniqueId: 'some-random-id'
-            }]
+            notBun: [testNotBun]
         };
         const received = burgerReducer(preloadedState.burger, {
             type: actions.ADD_TO_BURGER,
-            item: {
-                type: 'notBun'
-            },
+            item: testNotBun,
             uniqueId: 'some-random-id'
         });
         expect(received).toEqual(expected);
@@ -64,58 +104,32 @@ describe('Burger Constructor Reducer', () => {
         const inititalState = {
             ...preloadedState.burger,
             notBun: [
-                {
-                    type: 'notBun',
-                    uniqueId: 'some-random-id'
-                },
-                {
-                    type: 'notBun',
-                    uniqueId: 'some-random-id2'
-                }
+                testBun2,
+                testBun
             ]
         };
         const expected = {
             ...preloadedState.burger,
             notBun: [
-                {
-                    type: 'notBun',
-                    uniqueId: 'some-random-id2'
-                },
-                {
-                    type: 'notBun',
-                    uniqueId: 'some-random-id'
-                }
+                testBun,
+                testBun2
             ]
         };
         const received = burgerReducer(preloadedState.burger, {
             type: actions.REORDER_BURGER,
             payload: [
-                {
-                    type: 'notBun',
-                    uniqueId: 'some-random-id2'
-                },
-                {
-                    type: 'notBun',
-                    uniqueId: 'some-random-id'
-                }
+                testBun,
+                testBun2
             ]
         });
         expect(received).toEqual(expected);
     })
     it('should handle CLEAR_BURGER action', () => {
         const initialState = {
-            bun: {
-                type: 'bun'
-            },
+            bun: testBun,
             notBun: [
-                {
-                    type: 'notBun',
-                    uniqueId: 'some-random-id2'
-                },
-                {
-                    type: 'notBun',
-                    uniqueId: 'some-random-id'
-                }
+                testBun2,
+                testBun
             ]
         }
         const expected = preloadedState.burger;

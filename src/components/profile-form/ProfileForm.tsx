@@ -4,9 +4,10 @@ import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {useHistory} from "react-router-dom";
 import {getUser, updateUser} from "../../services/actions/user";
+import {TPreloadedState} from "../../services/types";
 
 export default function ProfileForm() {
-    const user = useSelector(store => store.user);
+    const user = useSelector((store: TPreloadedState) => store.user);
     const history = useHistory();
     const initialFormState = {
         name: user.data?.name ?? '',
@@ -18,7 +19,7 @@ export default function ProfileForm() {
 
     useEffect(() => {
         const fetchUserData = async () => {
-            await dispatch(getUser(user?.password));
+            await dispatch(getUser(user?.data?.password));
             if (user.getUserRequest.failed) {
                 history.replace({pathname: '/login'});
             }
@@ -26,7 +27,7 @@ export default function ProfileForm() {
         if (!user.data) {
             fetchUserData();
         }
-    }, [dispatch, history, user.data, user?.password, user.getUserRequest.failed]);
+    }, [dispatch, history, user.data, user?.data?.password, user.getUserRequest.failed]);
 
     useEffect(() => {
         setFormData({
@@ -37,9 +38,9 @@ export default function ProfileForm() {
     }, [user.data?.name, user.data?.email, user.data?.password]);
 
 
-    const profileOnChange = (e) => {
-        const value = e.target.value;
-        const name = e.target.name;
+    const profileOnChange = (e: React.FormEvent<HTMLInputElement>) => {
+        const value = e.currentTarget.value;
+        const name = e.currentTarget.name;
 
         setFormData({
             ...formData,
@@ -47,12 +48,12 @@ export default function ProfileForm() {
         });
     }
 
-    const updateUserHandler = (e) => {
+    const updateUserHandler = (e: React.SyntheticEvent) => {
         e.preventDefault();
         dispatch(updateUser(formData));
     }
 
-    const cancelChanges = (e) => {
+    const cancelChanges = (e: React.SyntheticEvent) => {
         e.preventDefault();
         setFormData(initialFormState);
     }

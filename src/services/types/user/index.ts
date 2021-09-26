@@ -1,5 +1,5 @@
 import * as types from "../../actions/user";
-import {TIngredient, TOrder} from "../index";
+import {TIngredient, TWsOrder} from "../index";
 
 export type TUser = {
     email: string;

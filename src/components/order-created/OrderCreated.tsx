@@ -2,9 +2,10 @@ import React from 'react';
 import OrderDetailsStyles from './OrderCreatedStyles.module.css';
 import successIcon from '../../images/success.gif';
 import {useSelector} from "react-redux";
+import {TPreloadedState} from "../../services/types";
 
 export default function OrderCreated(){
-    const {data: order} = useSelector(store => store.order);
+    const {data: order} = useSelector((store: TPreloadedState) => store.order);
     return order ?
         <div className={OrderDetailsStyles.orderDetails}>
             <div><p className={`${OrderDetailsStyles.orderId} text text_type_digits-large`}>{order.number}</p></div>

@@ -1,13 +1,10 @@
 import React from 'react';
 import ModalOverlayStyles from './ModalOverlayStyles.module.css';
 import {useHistory} from "react-router-dom";
-import PropTypes from "prop-types";
+import {TModalOverlayProps} from "../../services/types";
 
-function ModalOverlay({closeModal}) {
+function ModalOverlay({closeModal}: TModalOverlayProps) {
     const history = useHistory();
     return <div onClick={() => closeModal(history)} className={ModalOverlayStyles.overlay}></div>
 }
-ModalOverlay.propTypes = {
-    closeModal: PropTypes.func.isRequired
-};
 export default ModalOverlay;

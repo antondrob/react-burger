@@ -1,8 +1,8 @@
 import gif from '../../images/loading.gif';
 import styles from './LoadingStyles.module.css';
-import PropTypes from "prop-types";
+import {TLoadingProps} from "../../services/types";
 
-const Loading = ({request, fail}) => {
+const Loading = ({request, fail}: TLoadingProps) => {
     return (
         <section className={styles.section}>
             {request || !fail ? <img className={styles.loadingGif} src={gif} alt="Loading..."/> :
@@ -11,8 +11,4 @@ const Loading = ({request, fail}) => {
         </section>
     )
 }
-Loading.propTypes = {
-    request: PropTypes.bool.isRequired,
-    fail: PropTypes.bool.isRequired
-};
 export default Loading;

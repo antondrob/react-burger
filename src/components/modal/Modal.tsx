@@ -4,17 +4,17 @@ import {useDispatch, useSelector} from 'react-redux';
 import ModalOverlay from '../modal-overlay/ModalOverlay';
 import ModalStyles from './ModalStyles.module.css';
 import {CloseIcon} from '@ya.praktikum/react-developer-burger-ui-components';
-import PropTypes from "prop-types";
 import {ESC_KEYCODE} from '../../services/appVariables';
 import {useHistory} from "react-router-dom";
 import {ORDER_CLOSE} from "../../services/actions/order";
+import {TModalProps, TPreloadedState} from "../../services/types";
 
-const modalRoot = document.getElementById("react-modals");
+const modalRoot: HTMLElement = document.getElementById("react-modals")!;
 
-function Modal({children, header}) {
+function Modal({children, header}: TModalProps) {
     const dispatch = useDispatch();
     const history = useHistory();
-    const {data: order} = useSelector(store => store.order);
+    const {data: order} = useSelector((store: TPreloadedState) => store.order);
 
     const closeModal = useCallback((history) => {
         if (order) {
@@ -27,7 +27,7 @@ function Modal({children, header}) {
     }, [order, dispatch]);
 
     useEffect(() => {
-        const handleEsc = (event) => {
+        const handleEsc = (event: KeyboardEvent) => {
             if (event.keyCode === ESC_KEYCODE) {
                 closeModal(history);
             }
@@ -56,10 +56,5 @@ function Modal({children, header}) {
         modalRoot
     );
 }
-
-Modal.propTypes = {
-    header: PropTypes.string,
-    children: PropTypes.element.isRequired
-};
 
 export default Modal;

@@ -229,7 +229,7 @@ export const resetPassword = (password: string, token: string) => (dispatch: Dis
         });
 }
 
-export const getUser = (password: string) => (dispatch: Dispatch<TUserGetActions | void>) => {
+export const getUser = (password?: string) => (dispatch: Dispatch<TUserGetActions | void>) => {
     dispatch({
         type: GET_USER_REQUEST
     });

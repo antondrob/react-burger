@@ -1,4 +1,4 @@
-import {TIngredient} from "./types";
+import {TIngredient, TOrderData, TProduct} from "./types";
 
 export const checkResponse = (res: Response) => {
     return res.ok ? res.json() : res.json().then((err) => Promise.reject(err));
@@ -48,26 +48,8 @@ export const deleteCookies = (cookies: string[] = []) => {
         deleteCookie(el);
     })
 }
-type TProduct = {
-    name: string;
-    image_mobile: string;
-    price: number;
-};
-type TOrderItem = {
-    [key: string]: {
-        amount: number,
-        name: string,
-        image: string,
-        price: number,
-        id: string
-    }
-};
-type TOrderData = {
-    metaData: TOrderItem,
-    keys: Array<string>,
-    orderTotal: number
-};
-export const generateOrderItems = (ingredients: string[], items: TIngredient[]) => {
+
+export const generateOrderItems = (ingredients: string[], items: TIngredient[]):(TOrderData | null) => {
     let products: (TOrderData | null) = null;
     ingredients.forEach(el => {
         const product: (TProduct | undefined) = items.find(item => item._id === el);

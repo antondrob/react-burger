@@ -14,10 +14,11 @@ import {v4 as uuidv4} from 'uuid';
 import {getCookie} from "../../services/helperFunctions";
 import {useHistory} from "react-router-dom";
 import {createOrder} from "../../services/actions/order";
+import {TIngredient, TPreloadedState} from "../../services/types";
 
 function BurgerConstructor() {
-    const {notBun, bun} = useSelector(store => store.burger);
-    const {items} = useSelector(store => store.ingredients);
+    const {notBun, bun} = useSelector((store: TPreloadedState) => store.burger);
+    const {items} = useSelector((store: TPreloadedState) => store.ingredients);
     const history = useHistory();
     const orderTotal = useMemo(() => {
         return notBun.reduce(function (acc, obj) {
@@ -42,12 +43,12 @@ function BurgerConstructor() {
             })
         });
     }, [notBun, dispatch]);
-    const renderCard = (card, index) => {
+    const renderCard = (card: TIngredient, index: number) => {
         return (
             <SortableIngredient
                 key={card.uniqueId}
                 index={index}
-                id={card.uniqueId}
+                id={card.uniqueId ?? ''}
                 price={card.price}
                 name={card.name}
                 image_mobile={card.image_mobile}
@@ -57,7 +58,7 @@ function BurgerConstructor() {
     };
     const [{isHover}, dropTarget] = useDrop({
         accept: "ingredient",
-        drop(item) {
+        drop(item: {itemId: string}) {
             dispatch({
                 type: ADD_TO_BURGER,
                 item: items.find(el => el._id === item.itemId),

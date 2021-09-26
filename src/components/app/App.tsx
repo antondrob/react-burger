@@ -5,10 +5,11 @@ import ModalSwitch from '../modal-switch/ModalSwitch';
 import {BrowserRouter as Router} from 'react-router-dom';
 import {useDispatch, useSelector} from "react-redux";
 import {getIngredients} from "../../services/actions/ingredients";
+import {TPreloadedState} from "../../services/types";
 
 function App() {
     const dispatch = useDispatch();
-    const {items} = useSelector(store => store.ingredients);
+    const {items} = useSelector((store: TPreloadedState) => store.ingredients);
     useEffect(() => {
         if (items.length === 0) {
             dispatch(getIngredients());

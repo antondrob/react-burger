@@ -2,42 +2,60 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5016bf85-4fb3-46cf-bc8d-af0780ef0ddc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/services/reducers/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/types/burger/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/types/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/types/ingredients/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/types/order/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/types/user/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/types/ws/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/react-burger.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/react-burger.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/burger-constructor/BurgerConstructor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/burger-constructor/BurgerConstructor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/actions/burger.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/actions/burger.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/actions/ingredients.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/actions/ingredients.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/actions/login.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/actions/order.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/actions/order.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/actions/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/actions/user.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/actions/websocket.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/actions/websocket.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/appVariables.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/appVariables.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/helperFunctions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/helperFunctions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/middlewares/websocetMiddleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/middlewares/websocetMiddleware.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/preloadedState.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/preloadedState.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/reducers/burgerReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/reducers/burger-reducer/burgerReducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/reducers/burgerReducer.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/reducers/burger-reducer/burgerReducer.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/reducers/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/reducers/ingredientsReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/reducers/ingredients-reducer/ingredientsReducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/reducers/ingredientsReducer.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/reducers/ingredients-reducer/ingredientsReducer.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/reducers/orderReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/reducers/order-reducer/orderReducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/reducers/orderReducer.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/reducers/order-reducer/orderReducer.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/reducers/userReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/reducers/user-reducer/userReducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/reducers/userReducer.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/reducers/user-reducer/userReducer.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/reducers/websocketReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/reducers/websocket-reducer/websocketReducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/reducers/websocketReducer.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/reducers/websocket-reducer/websocketReducer.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cypress/integration/burger-constructor/drag-and-drop.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/cypress/integration/burger-constructor/drag-and-drop.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cypress/integration/burger-constructor/is-available.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/cypress/integration/burger-constructor/is-available.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cypress/integration/orders-feed/is-available.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/cypress/integration/orders-feed/is-available.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/app-header/AppHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app-header/AppHeader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/app/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/burger-constructor/BurgerConstructor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/burger-constructor/BurgerConstructor.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/burger-ingredient/BurgerIngredient.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/burger-ingredient/BurgerIngredient.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/burger-ingredients/BurgerIngredients.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/burger-ingredients/BurgerIngredients.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ingredient-details/IngredientDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ingredient-details/IngredientDetails.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/loading/Loading.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/loading/Loading.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/modal-overlay/ModalOverlay.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal-overlay/ModalOverlay.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/modal-switch/ModalSwitch.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal-switch/ModalSwitch.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/modal/Modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal/Modal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/order-created/OrderCreated.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/order-created/OrderCreated.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/order-details/OrderDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/order-details/OrderDetails.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/orders-feed/OrdersFeed.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/orders-feed/OrdersFeed.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/orders-stat/OrdersStat.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/orders-stat/OrdersStat.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/profile-form/ProfileForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/profile-form/ProfileForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/profile-menu/ProfileMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/profile-menu/ProfileMenu.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/profile-order/ProfileOrder.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/profile-order/ProfileOrder.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/profile-orders/ProfileOrders.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/profile-orders/ProfileOrders.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sortable-ingredient/SortableIngredient.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sortable-ingredient/SortableIngredient.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hocs/protected-route/ProtectedRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/hocs/protected-route/ProtectedRoute.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/feed/feed.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/feed/feed.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/forgot-password/forgot-password.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/forgot-password/forgot-password.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/home/home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/home/home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/ingredients/ingredients.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ingredients/ingredients.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/login/login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/login/login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/not-found/not-found.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/not-found/not-found.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/order-details/order-details.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/order-details/order-details.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/profile/profile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/profile/profile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/register/register.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/register/register.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/reset-password/reset-password.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/reset-password/reset-password.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/prop-types.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/actions/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/actions/user.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/helperFunctions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/helperFunctions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/middlewares/websocetMiddleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/middlewares/websocetMiddleware.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/preloadedState.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/preloadedState.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/reducers/burger-reducer/burgerReducer.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/reducers/burger-reducer/burgerReducer.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/reducers/ingredients-reducer/ingredientsReducer.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/reducers/ingredients-reducer/ingredientsReducer.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/reducers/order-reducer/orderReducer.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/reducers/order-reducer/orderReducer.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/reducers/user-reducer/userReducer.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/reducers/user-reducer/userReducer.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/reducers/websocket-reducer/websocketReducer.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/reducers/websocket-reducer/websocketReducer.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/types/burger/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/types/burger/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/types/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/types/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/types/order/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/types/order/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/types/user/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/types/user/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/types/ws/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/types/ws/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,8 +65,23 @@
   <component name="ComposerSettings">
     <execution />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript JSX File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProblemsViewState">
     <option name="selectedIndex" value="1" />
@@ -73,7 +106,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../react-burger-sprint-3" />
     <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/node_modules/react-scripts" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
+    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
     <property name="ts.external.directory.path" value="C:\Users\acer\Desktop\Work\React.js\react-burger\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -91,17 +124,7 @@
       <recent name="C:\Users\acer\Desktop\Work\React.js\react-burger\src\services\reducers\order-reducer" />
     </key>
   </component>
-  <component name="RunManager" selected="Jest.User Reducer.should handle GET_USER_FAIL action">
-    <configuration name="App.test.tsx" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="TEST_FILE" />
-      <test-file value="$PROJECT_DIR$/src/components/app/App.test.tsx" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Jest.WebSocket Reducer.should handle WS_GET_ORDERS action">
     <configuration name="Ingredients Reducer" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -109,60 +132,73 @@
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="SUITE" />
-      <test-file value="$PROJECT_DIR$/src/services/reducers/ingredientsReducer.test.js" />
+      <test-file value="$PROJECT_DIR$/src/services/reducers/ingredients-reducer/ingredientsReducer.test.ts" />
       <test-names>
         <test-name value="Ingredients Reducer" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="Order Reducer" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="Ingredients Reducer.should return the initial state" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/services/reducers/ingredients-reducer/ingredientsReducer.test.ts" />
+      <test-names>
+        <test-name value="Ingredients Reducer" />
+        <test-name value="should return the initial state" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="User Reducer" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="SUITE" />
-      <test-file value="$PROJECT_DIR$/src/services/reducers/orderReducer.test.js" />
-      <test-names>
-        <test-name value="Order Reducer" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="Order Reducer.should handle ORDER_CREATE_FAIL action" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/services/reducers/orderReducer.test.js" />
-      <test-names>
-        <test-name value="Order Reducer" />
-        <test-name value="should handle ORDER_CREATE_FAIL action" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="User Reducer.should handle GET_USER_FAIL action" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/services/reducers/userReducer.test.js" />
+      <test-file value="$PROJECT_DIR$/src/services/reducers/user-reducer/userReducer.test.ts" />
       <test-names>
         <test-name value="User Reducer" />
-        <test-name value="should handle GET_USER_FAIL action" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="WebSocket Reducer" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/src/services/reducers/websocket-reducer/websocketReducer.test.ts" />
+      <test-names>
+        <test-name value="WebSocket Reducer" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="WebSocket Reducer.should handle WS_GET_ORDERS action" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/services/reducers/websocket-reducer/websocketReducer.test.ts" />
+      <test-names>
+        <test-name value="WebSocket Reducer" />
+        <test-name value="should handle WS_GET_ORDERS action" />
       </test-names>
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Jest.User Reducer.should handle GET_USER_FAIL action" />
-        <item itemvalue="Jest.App.test.tsx" />
+        <item itemvalue="Jest.WebSocket Reducer.should handle WS_GET_ORDERS action" />
+        <item itemvalue="Jest.WebSocket Reducer" />
+        <item itemvalue="Jest.User Reducer" />
+        <item itemvalue="Jest.Ingredients Reducer.should return the initial state" />
         <item itemvalue="Jest.Ingredients Reducer" />
-        <item itemvalue="Jest.Order Reducer" />
-        <item itemvalue="Jest.Order Reducer.should handle ORDER_CREATE_FAIL action" />
       </list>
     </recent_temporary>
   </component>
@@ -177,7 +213,8 @@
       <workItem from="1631460578251" duration="57546000" />
       <workItem from="1631650419763" duration="35040000" />
       <workItem from="1631762857171" duration="56119000" />
-      <workItem from="1632108753566" duration="103872000" />
+      <workItem from="1632108753566" duration="118690000" />
+      <workItem from="1632618886183" duration="13158000" />
     </task>
     <servers />
   </component>

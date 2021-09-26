@@ -1,8 +1,19 @@
 import {ORDER_CREATE_REQUEST, ORDER_CREATE_SUCCESS, ORDER_CREATE_FAIL, ORDER_CLOSE} from "../../actions/order";
 import {TClearBurgerAction} from "../burger";
-import {TIngredient, TOrder} from "../index";
+import {TIngredient, TOwner} from "../index";
 import {refreshToken} from "../../actions/user";
 
+type TOrder = {
+    createdAt: string;
+    ingredients: TIngredient[];
+    name: string;
+    number: number;
+    owner?: TOwner;
+    price?: number;
+    status: string;
+    updatedAt: string;
+    _id: string;
+};
 export type TOrderCreatedState = {
     data: (TOrder | null),
     orderRequest: boolean,
@@ -27,7 +38,6 @@ type TOrderCreateFailAction = {
 type TOrderCloseAction = {
     type: typeof ORDER_CLOSE;
 };
-export type TCreateOrder = (ingredients: TIngredient[]) => void;
 
 export type TOrderActions =
     TOrderCreateRequestAction

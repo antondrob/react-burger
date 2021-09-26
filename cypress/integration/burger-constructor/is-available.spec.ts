@@ -3,3 +3,4 @@ describe('Stellar Burger App', function() {
         cy.visit('http://localhost:3000');
     });
 });
+export {}

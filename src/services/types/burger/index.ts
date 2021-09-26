@@ -17,7 +17,7 @@ type TRemoveFromBurgerAction = {
 };
 type TReorderBurgerAction = {
     type: typeof REORDER_BURGER;
-    payload: TBurgerConstructorState;
+    payload: TIngredient[];
 };
 export type TClearBurgerAction = {
     type?: typeof CLEAR_BURGER;

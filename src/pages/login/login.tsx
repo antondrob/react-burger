@@ -11,7 +11,7 @@ export const LoginPage = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const onSubmit = (e) => {
+    const onSubmit = (e: React.SyntheticEvent) => {
         e.preventDefault();
         if (email && password) {
             dispatch(login(email, password));

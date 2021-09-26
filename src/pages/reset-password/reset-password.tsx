@@ -4,14 +4,15 @@ import {Button, Input, PasswordInput} from '@ya.praktikum/react-developer-burger
 import {Link, Redirect} from 'react-router-dom';
 import {resetPassword} from "../../services/actions/user";
 import {useDispatch, useSelector} from "react-redux";
+import {TPreloadedState} from "../../services/types";
 
 export const ResetPasswordPage = () => {
     const [password, setPassword] = useState('');
     const [code, setCode] = useState('');
 
     const dispatch = useDispatch();
-    const user = useSelector(store => store.user);
-    const formSubmit = useCallback((e) => {
+    const user = useSelector((store: TPreloadedState) => store.user);
+    const formSubmit = useCallback((e: React.SyntheticEvent) => {
         e.preventDefault();
         if (code && password) {
             dispatch(resetPassword(password, code));

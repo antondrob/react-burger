@@ -31,3 +31,4 @@ describe('Burger constructor', function () {
             .click()
     })
 })
+export {}

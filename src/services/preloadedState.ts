@@ -1,15 +1,4 @@
-import {TBurgerConstructorState} from "./types/burger";
-import {TOrderCreatedState} from "./types/order";
-import {TUserState} from "./types/user";
-import {TBurgerIngredientsState} from "./types/ingredients";
-
-type TPreloadedState = {
-    ingredients: TBurgerIngredientsState;
-    burger: TBurgerConstructorState;
-    order: TOrderCreatedState;
-    websocket: any;
-    user: TUserState;
-};
+import {TPreloadedState} from "../services/types";
 export const preloadedState: TPreloadedState = {
     ingredients: {
         items: [],

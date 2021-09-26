@@ -7,7 +7,7 @@ import {logout} from "../../services/actions/user";
 export default function ProfileMenu() {
     const dispatch = useDispatch();
 
-    const logoutClick = (e) => {
+    const logoutClick = (e: React.SyntheticEvent) => {
         e.preventDefault();
         dispatch(logout());
     };

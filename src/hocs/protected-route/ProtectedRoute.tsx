@@ -1,10 +1,11 @@
 import {useSelector} from "react-redux";
 import {Redirect, Route, useLocation} from "react-router-dom";
 import {getCookie} from "../../services/helperFunctions";
+import {TLocation, TPreloadedState, TProtectedRouteProps} from "../../services/types";
 
-export default function ProtectedRoute({children, ...rest}) {
-    const user = useSelector(store => store.user);
-    const location = useLocation();
+export default function ProtectedRoute({children, ...rest}: TProtectedRouteProps) {
+    const user = useSelector((store: TPreloadedState) => store.user);
+    const location = useLocation<TLocation>();
     const refreshToken = getCookie('refreshToken');
     switch (rest.path) {
         case '/profile':
@@ -27,10 +28,9 @@ export default function ProtectedRoute({children, ...rest}) {
             )
         case '/login':
             if (refreshToken) {
-                const { from } = location.state || { from: { pathname: '/' } };
                 return (
                     <Redirect
-                        to={from}
+                        to={location?.state?.from ? location.state.from : {pathname: '/'}}
                     />
                 );
             }

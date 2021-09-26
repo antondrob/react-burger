@@ -3,14 +3,13 @@ import BurgerIngredientStyles from "../burger-ingredient/BurgerIngredientStyles.
 import React from "react";
 import {useSelector} from "react-redux";
 import {useDrag} from "react-dnd";
-import PropTypes from "prop-types";
-import {igredientPropTypes} from "../../prop-types";
 import {Link, useLocation} from "react-router-dom";
+import {TBurgerIngredientProps, TPreloadedState} from "../../services/types";
 
-const BurgerIngredient = ({item}) => {
+const BurgerIngredient = ({item}: TBurgerIngredientProps) => {
     const location = useLocation();
     const ingredientId = item['_id'];
-    const burger = useSelector(store => store.burger);
+    const burger = useSelector((store: TPreloadedState) => store.burger);
     const itemId = item._id
     const qty = item.type === 'bun' && burger.bun?._id === item._id ? 2 : item.type !== 'bun' ? burger.notBun.filter(el => el._id === item._id).length : 0;
 
@@ -23,7 +22,7 @@ const BurgerIngredient = ({item}) => {
     });
 
     return (
-        !isDrag && (
+        !isDrag ? (
             <Link
                 className={BurgerIngredientStyles.listItem}
                 ref={dragRef}
@@ -42,12 +41,8 @@ const BurgerIngredient = ({item}) => {
                     <h3 className={BurgerIngredientStyles.listItemTitle}>{item.name}</h3>
                 </div>
             </Link>
-        )
+        ) : null
     )
 }
-
-BurgerIngredient.propTypes = {
-    item: PropTypes.shape(igredientPropTypes).isRequired
-};
 
 export default BurgerIngredient;

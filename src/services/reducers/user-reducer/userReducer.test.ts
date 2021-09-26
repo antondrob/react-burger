@@ -4,7 +4,7 @@ import {userReducer} from "./userReducer";
 
 describe('User Reducer', () => {
     it('should return the initial state', () => {
-        expect(userReducer(undefined, {})).toEqual(preloadedState.user);
+        expect(userReducer(undefined, <any>{})).toEqual(preloadedState.user);
     })
     // Login actions
     it('should handle LOGIN_REQUEST action', () => {

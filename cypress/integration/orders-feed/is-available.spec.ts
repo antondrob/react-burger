@@ -19,3 +19,4 @@ describe('Order feed', function () {
         cy.get('body').trigger('keyup', { keyCode: 27});
     })
 });
+export {}

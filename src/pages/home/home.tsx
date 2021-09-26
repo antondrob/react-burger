@@ -6,9 +6,10 @@ import BurgerConstructor from "../../components/burger-constructor/BurgerConstru
 import React from "react";
 import {useSelector} from "react-redux";
 import Loading from "../../components/loading/Loading";
+import {TPreloadedState} from "../../services/types";
 
 export const HomePage = () => {
-    const {items, ingredientsRequest, ingredientsFailed} = useSelector(store => store.ingredients);
+    const {items, ingredientsRequest, ingredientsFailed} = useSelector((store: TPreloadedState) => store.ingredients);
     return (
         <>
             <h1>Соберите бургер</h1>
