@@ -7,35 +7,35 @@ import {getUser, updateUser} from "../../services/actions/user";
 import {TPreloadedState} from "../../services/types";
 
 export default function ProfileForm() {
-    const user = useSelector((store: TPreloadedState) => store.user);
+    const {data: user, getUserRequest} = useSelector((store: TPreloadedState) => store.user);
     const history = useHistory();
     const initialFormState = {
-        name: user.data?.name ?? '',
-        email: user.data?.email ?? '',
-        password: user.data?.password ?? ''
+        name: user?.name ?? '',
+        email: user?.email ?? '',
+        password: user?.password ?? ''
     };
     const [formData, setFormData] = useState(initialFormState);
     const dispatch = useDispatch();
 
     useEffect(() => {
         const fetchUserData = async () => {
-            await dispatch(getUser(user?.data?.password));
-            if (user.getUserRequest.failed) {
+            await dispatch(getUser(user?.password));
+            if (getUserRequest.failed) {
                 history.replace({pathname: '/login'});
             }
         }
-        if (!user.data) {
+        if (user === null) {
             fetchUserData();
         }
-    }, [dispatch, history, user.data, user?.data?.password, user.getUserRequest.failed]);
+    }, [dispatch, history, user, user?.password, getUserRequest.failed]);
 
     useEffect(() => {
         setFormData({
-            name: user.data?.name ?? '',
-            email: user.data?.email ?? '',
-            password: user.data?.password ?? ''
+            name: user?.name ?? '',
+            email: user?.email ?? '',
+            password: user?.password ?? ''
         });
-    }, [user.data?.name, user.data?.email, user.data?.password]);
+    }, [user?.name, user?.email, user?.password]);
 
 
     const profileOnChange = (e: React.FormEvent<HTMLInputElement>) => {

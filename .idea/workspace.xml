@@ -3,59 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5016bf85-4fb3-46cf-bc8d-af0780ef0ddc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cypress/integration/burger-constructor/drag-and-drop.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/cypress/integration/burger-constructor/drag-and-drop.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cypress/integration/burger-constructor/is-available.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/cypress/integration/burger-constructor/is-available.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cypress/integration/orders-feed/is-available.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/cypress/integration/orders-feed/is-available.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/app-header/AppHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app-header/AppHeader.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/app/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/burger-constructor/BurgerConstructor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/burger-constructor/BurgerConstructor.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/burger-ingredient/BurgerIngredient.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/burger-ingredient/BurgerIngredient.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/burger-ingredients/BurgerIngredients.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/burger-ingredients/BurgerIngredients.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ingredient-details/IngredientDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ingredient-details/IngredientDetails.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/loading/Loading.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/loading/Loading.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/modal-overlay/ModalOverlay.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal-overlay/ModalOverlay.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/modal-switch/ModalSwitch.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal-switch/ModalSwitch.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/modal/Modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal/Modal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/order-created/OrderCreated.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/order-created/OrderCreated.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/order-details/OrderDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/order-details/OrderDetails.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/orders-feed/OrdersFeed.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/orders-feed/OrdersFeed.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/orders-stat/OrdersStat.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/orders-stat/OrdersStat.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/profile-form/ProfileForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/profile-form/ProfileForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/profile-menu/ProfileMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/profile-menu/ProfileMenu.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/profile-order/ProfileOrder.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/profile-order/ProfileOrder.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/profile-orders/ProfileOrders.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/profile-orders/ProfileOrders.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/sortable-ingredient/SortableIngredient.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sortable-ingredient/SortableIngredient.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hocs/protected-route/ProtectedRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/hocs/protected-route/ProtectedRoute.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/feed/feed.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/feed/feed.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/forgot-password/forgot-password.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/forgot-password/forgot-password.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/home/home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/home/home.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/ingredients/ingredients.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ingredients/ingredients.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/login/login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/login/login.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/not-found/not-found.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/not-found/not-found.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/order-details/order-details.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/order-details/order-details.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/profile/profile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/profile/profile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/register/register.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/register/register.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/reset-password/reset-password.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/reset-password/reset-password.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/prop-types.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/actions/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/actions/user.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/helperFunctions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/helperFunctions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/middlewares/websocetMiddleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/middlewares/websocetMiddleware.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/preloadedState.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/preloadedState.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/reducers/burger-reducer/burgerReducer.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/reducers/burger-reducer/burgerReducer.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/reducers/ingredients-reducer/ingredientsReducer.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/reducers/ingredients-reducer/ingredientsReducer.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/reducers/order-reducer/orderReducer.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/reducers/order-reducer/orderReducer.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/reducers/user-reducer/userReducer.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/reducers/user-reducer/userReducer.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/reducers/websocket-reducer/websocketReducer.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/reducers/websocket-reducer/websocketReducer.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/types/burger/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/types/burger/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/types/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/types/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/types/order/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/types/order/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/types/user/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/types/user/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/types/ws/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/types/ws/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/profile-form/ProfileForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/profile-form/ProfileForm.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -214,7 +162,7 @@
       <workItem from="1631650419763" duration="35040000" />
       <workItem from="1631762857171" duration="56119000" />
       <workItem from="1632108753566" duration="118690000" />
-      <workItem from="1632618886183" duration="13158000" />
+      <workItem from="1632618886183" duration="16062000" />
     </task>
     <servers />
   </component>
