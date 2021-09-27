@@ -9,5 +9,8 @@
     <orderEntry type="module" module-name="Bucket" />
     <orderEntry type="module" module-name="wcfm.loc" />
     <orderEntry type="module" module-name="GitHub" />
+    <orderEntry type="module" module-name="domains" />
+    <orderEntry type="module" module-name="OnePix" />
+    <orderEntry type="module" module-name="react-burger-sprint-3" />
   </component>
 </module>

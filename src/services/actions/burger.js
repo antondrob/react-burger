@@ -1,4 +1,0 @@
-export const ADD_TO_BURGER = 'ADD_TO_BURGER';
-export const REMOVE_FROM_BURGER = 'REMOVE_FROM_BURGER';
-export const CLEAR_BURGER = 'CLEAR_BURGER';
-export const REORDER_BURGER = 'REORDER_BURGER';

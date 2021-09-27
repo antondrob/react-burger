@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5016bf85-4fb3-46cf-bc8d-af0780ef0ddc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/cypress/.eslintrc.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cypress/integration/burger-constructor/drag-and-drop.spec.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cypress/integration/burger-constructor/is-available.spec.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cypress/integration/orders-feed/is-available.spec.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/profile-form/ProfileForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/profile-form/ProfileForm.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,11 +13,31 @@
   <component name="ComposerSettings">
     <execution />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript JSX File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="1" />
+  </component>
   <component name="ProjectId" id="1y2rYzJ2qWVS9Yo5yjmoPaKnxGB" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -37,33 +51,28 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/cypress/integration/orders-feed" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../react-burger-sprint-3" />
     <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/node_modules/react-scripts" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
+    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
     <property name="ts.external.directory.path" value="C:\Users\acer\Desktop\Work\React.js\react-burger\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\acer\Desktop\Work\Git\Bitbucket\OnePix\loyalty-cards-cron-checker" />
       <recent name="C:\Users\acer\Desktop\Work\React.js\react-burger\cypress\integration\orders-feed" />
       <recent name="C:\Users\acer\Desktop\Work\Bucket" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\acer\Desktop\Work\React.js\react-burger" />
+      <recent name="C:\Users\acer\Desktop\Work\React.js\react-burger\src\services\types\burger" />
+      <recent name="C:\Users\acer\Desktop\Work\React.js\react-burger\src\services\types\ingredients" />
+      <recent name="C:\Users\acer\Desktop\Work\React.js\react-burger\src\services\reducers\websocket-reducer" />
+      <recent name="C:\Users\acer\Desktop\Work\React.js\react-burger\src\services\reducers\user-reducer" />
+      <recent name="C:\Users\acer\Desktop\Work\React.js\react-burger\src\services\reducers\order-reducer" />
     </key>
   </component>
-  <component name="RunManager" selected="Jest.User Reducer.should handle GET_USER_FAIL action">
-    <configuration name="App.test.tsx" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="TEST_FILE" />
-      <test-file value="$PROJECT_DIR$/src/components/app/App.test.tsx" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Jest.WebSocket Reducer.should handle WS_GET_ORDERS action">
     <configuration name="Ingredients Reducer" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -71,60 +80,73 @@
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="SUITE" />
-      <test-file value="$PROJECT_DIR$/src/services/reducers/ingredientsReducer.test.js" />
+      <test-file value="$PROJECT_DIR$/src/services/reducers/ingredients-reducer/ingredientsReducer.test.ts" />
       <test-names>
         <test-name value="Ingredients Reducer" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="Order Reducer" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="Ingredients Reducer.should return the initial state" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/services/reducers/ingredients-reducer/ingredientsReducer.test.ts" />
+      <test-names>
+        <test-name value="Ingredients Reducer" />
+        <test-name value="should return the initial state" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="User Reducer" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="SUITE" />
-      <test-file value="$PROJECT_DIR$/src/services/reducers/orderReducer.test.js" />
-      <test-names>
-        <test-name value="Order Reducer" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="Order Reducer.should handle ORDER_CREATE_FAIL action" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/services/reducers/orderReducer.test.js" />
-      <test-names>
-        <test-name value="Order Reducer" />
-        <test-name value="should handle ORDER_CREATE_FAIL action" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="User Reducer.should handle GET_USER_FAIL action" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/services/reducers/userReducer.test.js" />
+      <test-file value="$PROJECT_DIR$/src/services/reducers/user-reducer/userReducer.test.ts" />
       <test-names>
         <test-name value="User Reducer" />
-        <test-name value="should handle GET_USER_FAIL action" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="WebSocket Reducer" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/src/services/reducers/websocket-reducer/websocketReducer.test.ts" />
+      <test-names>
+        <test-name value="WebSocket Reducer" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="WebSocket Reducer.should handle WS_GET_ORDERS action" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/services/reducers/websocket-reducer/websocketReducer.test.ts" />
+      <test-names>
+        <test-name value="WebSocket Reducer" />
+        <test-name value="should handle WS_GET_ORDERS action" />
       </test-names>
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Jest.User Reducer.should handle GET_USER_FAIL action" />
-        <item itemvalue="Jest.App.test.tsx" />
+        <item itemvalue="Jest.WebSocket Reducer.should handle WS_GET_ORDERS action" />
+        <item itemvalue="Jest.WebSocket Reducer" />
+        <item itemvalue="Jest.User Reducer" />
+        <item itemvalue="Jest.Ingredients Reducer.should return the initial state" />
         <item itemvalue="Jest.Ingredients Reducer" />
-        <item itemvalue="Jest.Order Reducer" />
-        <item itemvalue="Jest.Order Reducer.should handle ORDER_CREATE_FAIL action" />
       </list>
     </recent_temporary>
   </component>
@@ -139,7 +161,8 @@
       <workItem from="1631460578251" duration="57546000" />
       <workItem from="1631650419763" duration="35040000" />
       <workItem from="1631762857171" duration="56119000" />
-      <workItem from="1632108753566" duration="27063000" />
+      <workItem from="1632108753566" duration="118690000" />
+      <workItem from="1632618886183" duration="16062000" />
     </task>
     <servers />
   </component>
